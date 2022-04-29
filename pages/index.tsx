@@ -1,10 +1,15 @@
+import MainLayout from "../layouts/MainLayout";
+
 export default function Index() {
     return (
         <>
-            <div className={"center"}>
-                <h1>Welcome!</h1>
-                <h3>Here all the best videos go!</h3>
-            </div>
+            <MainLayout>
+                <div className={"center"}>
+                    <h1>Welcome!</h1>
+                    <h3>Here all the best videos go!</h3>
+                </div>
+            </MainLayout>
+
 
             <style jsx> {
                 `
