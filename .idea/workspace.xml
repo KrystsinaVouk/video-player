@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="the carcass of the app">
-      <change afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/videos/display.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/VideoItem.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="main components [added]">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/VideoProgress.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/videos/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Player.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,11 @@
     <property name="ts.external.directory.path" value="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\assets\img" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,7 +63,9 @@
       <workItem from="1651254569847" duration="1314000" />
       <workItem from="1651256205548" duration="1117000" />
       <workItem from="1651267580218" duration="6489000" />
-      <workItem from="1651274781525" duration="475000" />
+      <workItem from="1651274781525" duration="4487000" />
+      <workItem from="1651354127864" duration="1668000" />
+      <workItem from="1651356157477" duration="2281000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -67,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651267775965</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="the carcass of the app">
+      <created>1651275269294</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651275269294</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +103,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="project init" />
     <MESSAGE value="the carcass of the app" />
-    <option name="LAST_COMMIT_MESSAGE" value="the carcass of the app" />
+    <MESSAGE value="main components [added]" />
+    <option name="LAST_COMMIT_MESSAGE" value="main components [added]" />
   </component>
 </project>
