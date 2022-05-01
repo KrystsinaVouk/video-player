@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="main components [added] with dummy example">
-      <change afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/reducers/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/reducers/playerReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/player.ts" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="store , rootRedicer with next-wrapper and action creators types [added]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Guid].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
       <workItem from="1651274781525" duration="4487000" />
       <workItem from="1651354127864" duration="1668000" />
       <workItem from="1651356157477" duration="2830000" />
-      <workItem from="1651359492605" duration="3147000" />
+      <workItem from="1651359492605" duration="4723000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -87,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651358668387</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="store , rootRedicer with next-wrapper and action creators types [added]">
+      <created>1651362851302</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651362851302</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +117,7 @@
     <MESSAGE value="the carcass of the app" />
     <MESSAGE value="main components [added]" />
     <MESSAGE value="main components [added] with dummy example" />
-    <option name="LAST_COMMIT_MESSAGE" value="main components [added] with dummy example" />
+    <MESSAGE value="store , rootRedicer with next-wrapper and action creators types [added]" />
+    <option name="LAST_COMMIT_MESSAGE" value="store , rootRedicer with next-wrapper and action creators types [added]" />
   </component>
 </project>

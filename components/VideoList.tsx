@@ -12,10 +12,9 @@ const VideoList: React.FC<VideoListProps> = ({videos}) => {
         <Grid container direction="column">
             <Box p={2}>
                 {videos.map(video =>
-                    <VideoItem key={video.id} video={video} active={false}/>
+                    <VideoItem key={video.Id} video={video} active={false}/>
                 )}
             </Box>
-
         </Grid>
     );
 };

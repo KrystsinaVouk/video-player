@@ -1,19 +1,38 @@
 import React from 'react';
 import {Pause, PlayArrow, VolumeUp} from "@material-ui/icons";
 import {Grid, IconButton} from "@material-ui/core";
+// @ts-ignore
 import styles from "../styles/Player.module.scss"
 import VideoProgress from "./VideoProgress";
 
 function Player() {
     const video = {
-        id: '1',
-        name: 'Video 1',
-        artist: 'some',
-        text: 'some text',
-        listens: 10,
-        picture: 'https://th.bing.com/th/id/R.1b50867395e05be07f7e98df254c4bdd?rik=LkqDPkXcQRiHBQ&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2f1680x1050%2f2010%2fAnimals_Cats_Little_Kitten_024152_.jpg&ehk=FDyINAyx3EMo3QTVkI5LCj3QUxQpRQ64TfFhTsEY%2bsM%3d&risl=&pid=ImgRaw&r=0',
-        videoURL: 'url'
-    }
+            Id: 15,
+            Guid: "6e6a86e5-356f-4795-8998-305e1b202536",
+            MediaTypeCode: "VOD",
+            MediaTypeDisplayName: "VOD",
+            MediaAgeRestrictionValueMin: 16,
+            MediaAgeRestrictionImageUrl: "https://pegi.info/sites/default/files/styles/medium/public/2017-03/pegi16.png",
+            Title: "Top Gun \nMAVERICK",
+            Description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing \nthe envelope as a courageous test pilot and dodging\nthe advancement in rank that would ground him.",
+            Year: 2015,
+            Duration: 5040000,
+            IsTrialContentAvailable: false,
+            AvailableFrom: "2021-02-01T21:19:48+00:00",
+            Images: [
+                {
+                    Id: 16,
+                    MediaId: 15,
+                    PlatformCode: "ANY",
+                    ImageTypeCode: "COVER",
+                    Url: "https://d1n3vpqjhjvv6k.cloudfront.net:443/Asset/6e6a86e5356f47958998305e1b202536/Images/170c614505b540b988bbb81a7183f4bc",
+                    Width: 0,
+                    Height: 0
+                }
+            ],
+            Products: [{Id: 15}]
+        };
+
     const active = false;
 
     return (
@@ -22,8 +41,8 @@ function Player() {
                 {active ? <Pause /> : <PlayArrow />}
             </IconButton>
             <Grid container direction="column" style={{width: 200, margin: '0 20px'}}>
-                <div>{video.name}</div>
-                <div style={{fontSize: 12, color: 'gray'}}>{video.artist}</div>
+                <div>{video.Title}</div>
+                <div style={{fontSize: 12, color: 'gray'}}>{video.MediaTypeDisplayName}</div>
             </Grid>
             <VideoProgress left={0} right={100} onChange={()=>({})} />
             <VolumeUp style={{marginLeft: 'auto'}}/>

@@ -1,13 +1,11 @@
 import React from 'react';
+import {Button, Grid} from "@material-ui/core";
 import MainLayout from "../../layouts/MainLayout";
-import {Grid, Card, Button, Box} from "@material-ui/core";
 import {useRouter} from "next/router";
-import {IVideo} from "../../types/video";
-import VideoList from "../../components/VideoList";
 
-function Index() {
+const VideoPage = () => {
     const router = useRouter();
-    const videos: IVideo[] = [{
+    const video = {
         Id: 15,
         Guid: "6e6a86e5-356f-4795-8998-305e1b202536",
         MediaTypeCode: "VOD",
@@ -32,23 +30,29 @@ function Index() {
             }
         ],
         Products: [{Id: 15}]
-    }]
+    };
 
     return (
         <MainLayout>
-            <Grid container justifyContent="center">
-                <Card style={{width: 900}}>
-                    <Box p={3}>
-                        <Grid container justifyContent="space-between">
-                            <h1>Videos</h1>
-                            <Button onClick={()=>router.push('/videos/display')}>Load the videos</Button>
-                        </Grid>
-                    </Box>
-                    <VideoList videos={videos}/>
-                </Card>
+            <Button
+                variant={"outlined"}
+                style={{fontSize: 32}}
+                onClick={() => router.push('/videos')}
+            >
+                Come back to the videos
+            </Button>
+            <Grid container style={{margin: '20px 0'}}>
+                <img alt={video.Title} src={video.MediaAgeRestrictionImageUrl} width={200} height={200}/>
+                <div style={{marginLeft: 30}}>
+                    <h1>{video.Title}</h1>
+                    <h3>Media Type - {video.MediaTypeDisplayName}</h3>
+                    <h3>Year - {video.Year}</h3>
+                </div>
             </Grid>
+            <h1>Description</h1>
+            <p>{video.Description}</p>
         </MainLayout>
     );
-}
+};
 
-export default Index;
+export default VideoPage;
