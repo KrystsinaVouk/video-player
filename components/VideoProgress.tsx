@@ -11,7 +11,7 @@ const VideoProgress:React.FC<VideoProgressProps> = ({left, right, onChange}) => 
         <div style={{display:"flex"}}>
             <input
                 type={"range"}
-                min={left}
+                min={0}
                 max={right}
                 value={left}
                 onChange={onChange}

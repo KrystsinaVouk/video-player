@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Grid} from "@material-ui/core";
 import MainLayout from "../../layouts/MainLayout";
 import {useRouter} from "next/router";
+import Player from "../../components/Player";
 
 const VideoPage = () => {
     const router = useRouter();
@@ -51,6 +52,8 @@ const VideoPage = () => {
             </Grid>
             <h1>Description</h1>
             <p>{video.Description}</p>
+
+            <Player />
         </MainLayout>
     );
 };

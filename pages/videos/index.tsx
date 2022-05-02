@@ -1,12 +1,11 @@
 import React from 'react';
 import MainLayout from "../../layouts/MainLayout";
-import {Grid, Card, Button, Box} from "@material-ui/core";
+import {Grid, Card, Box} from "@material-ui/core";
 import {useRouter} from "next/router";
 import {IVideo} from "../../types/video";
 import VideoList from "../../components/VideoList";
 
 function Index() {
-    const router = useRouter();
     const videos: IVideo[] = [{
         Id: 15,
         Guid: "6e6a86e5-356f-4795-8998-305e1b202536",
@@ -41,7 +40,6 @@ function Index() {
                     <Box p={3}>
                         <Grid container justifyContent="space-between">
                             <h1>Videos</h1>
-                            <Button onClick={()=>router.push('/videos/display')}>Load the videos</Button>
                         </Grid>
                     </Box>
                     <VideoList videos={videos}/>

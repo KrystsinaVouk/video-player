@@ -9,13 +9,15 @@ interface VideoListProps {
 
 const VideoList: React.FC<VideoListProps> = ({videos}) => {
     return (
-        <Grid container direction="column">
-            <Box p={2}>
-                {videos.map(video =>
-                    <VideoItem key={video.Id} video={video} active={false}/>
-                )}
-            </Box>
-        </Grid>
+        <>
+            <Grid container direction="column">
+                <Box p={2}>
+                    {videos.map(video =>
+                        <VideoItem key={video.Id} video={video} active={false}/>
+                    )}
+                </Box>
+            </Grid>
+        </>
     );
 };
 
