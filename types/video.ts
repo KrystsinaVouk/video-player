@@ -1,4 +1,4 @@
-export interface IVideo {
+export interface IVideoMediaCOntent {
     Id: number;
     Guid: string;
     MediaTypeCode: string;
@@ -13,6 +13,17 @@ export interface IVideo {
     AvailableFrom: string;
     Images: IImage[];
     Products: IProduct[];
+}
+
+export interface IVideo {
+    MediaId: number;
+    Title: string;
+    Description: string;
+    MediaTypeCode: string;
+    MediaTypeDisplayName: string;
+    StreamId: number;
+    Provider: string;
+    ContentUrl: string;
 }
 
 interface IImage {

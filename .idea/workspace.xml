@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="video type [corrected]">
-      <change afterPath="$PROJECT_DIR$/hooks/useActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useTypedSelector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/action-creators/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/action-creators/player.ts" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="implementation of React Player lib and testing its usage with &#10;customizing controls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoProgress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/[Guid].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Guid].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/display.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/reducers/playerReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/playerReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Player.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Player.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +67,9 @@
       <workItem from="1651414408943" duration="8577000" />
       <workItem from="1651425749165" duration="2503000" />
       <workItem from="1651435390608" duration="11792000" />
+      <workItem from="1651487730415" duration="377000" />
+      <workItem from="1651490952264" duration="52000" />
+      <workItem from="1651496077740" duration="4578000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -112,7 +106,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651364838808</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="custom hooks [added]&#10;configuration of action creators">
+      <created>1651487935993</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1651487935993</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implementation of React Player lib and testing its usage with &#10;customizing controls">
+      <created>1651488030781</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1651488030781</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +146,8 @@
     <MESSAGE value="main components [added] with dummy example" />
     <MESSAGE value="store , rootRedicer with next-wrapper and action creators types [added]" />
     <MESSAGE value="video type [corrected]" />
-    <option name="LAST_COMMIT_MESSAGE" value="video type [corrected]" />
+    <MESSAGE value="custom hooks [added]&#10;configuration of action creators" />
+    <MESSAGE value="implementation of React Player lib and testing its usage with &#10;customizing controls" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation of React Player lib and testing its usage with &#10;customizing controls" />
   </component>
 </project>

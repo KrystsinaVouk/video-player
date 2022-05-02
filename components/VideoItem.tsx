@@ -1,32 +1,31 @@
 import React from 'react';
 import {IVideo} from "../types/video";
-import {Card, Grid, IconButton} from "@material-ui/core";
+import {Card, Grid} from "@material-ui/core";
 // @ts-ignore
 import styles from "../styles/VideoItem.module.scss"
-import {Delete, Pause, PlayArrow} from "@material-ui/icons";
 import {useRouter} from "next/router";
+import {useActions} from "../hooks/useActions";
 
 interface IVideoItemProps {
     video: IVideo;
-    active?: boolean
 }
 
-const VideoItem: React.FC<IVideoItemProps> = ({video, active}) => {
+const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
+    const {setActive} = useActions();
     const router = useRouter();
+
+    const onClickVideo = () => {
+        setActive(video);
+        router.push(`/videos/${video.MediaId}`);
+    }
+
     return (
-        <Card className={styles.video} onClick={()=>router.push(`/videos/${video.Guid}`)}>
-            <IconButton onClick={e => e.stopPropagation()}>
-                {active ? <Pause /> : <PlayArrow />}
-            </IconButton>
-            <img width={70} height={70} alt="video image" src={video.MediaAgeRestrictionImageUrl}/>
+        <Card className={styles.video} onClick={onClickVideo}>
+            <img width={70} height={70} alt="video image" src={`https://pegi.info/sites/default/files/styles/medium/public/2017-03/pegi16.png`}/>
             <Grid container direction="column" style={{width: 200, margin: '0 20px'}}>
                 <div>{video.Title}</div>
                 <div style={{fontSize: 12, color: 'gray'}}>{video.MediaTypeDisplayName}</div>
             </Grid>
-            {active && <div>02:42 / 03:22</div>}
-            <IconButton onClick={e => e.stopPropagation()} style={{marginLeft: 'auto'}}>
-                <Delete/>
-            </IconButton>
         </Card>
     );
 };
