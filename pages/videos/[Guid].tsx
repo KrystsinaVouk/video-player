@@ -38,8 +38,8 @@ const VideoPage = () => {
             <Grid style={{background:'papayawhip', margin:100, padding:20, borderRadius:'2%'}}>
                 <Button
                     variant={"outlined"}
-                    style={{fontSize: 12}}
-                    onClick={() => router.push('/videos')}
+                    style={{fontSize: 10}}
+                    onClick={() => router.push('/')}
                 >
                     Come back to the videos
                 </Button>

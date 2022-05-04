@@ -4,39 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="styles and functionality [updated]">
-      <change afterPath="$PROJECT_DIR$/components/AppWrapper.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/context/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useInput.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useLogin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/action-creators/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/action-creators/video.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/reducers/userReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/reducers/videoReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/Index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/Login.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/global.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/user.ts" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="state structure[updated]&#10;video reducer [fixed]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoProgress.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/videos/[Guid].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Guid].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/action-creators/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/action-creators/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/reducers/videoReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/videoReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +90,7 @@
       <workItem from="1651592644523" duration="1449000" />
       <workItem from="1651598234905" duration="6368000" />
       <workItem from="1651610473854" duration="10023000" />
-      <workItem from="1651695857995" duration="149000" />
+      <workItem from="1651695857995" duration="4634000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -169,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651500783275</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="styles and functionality [updated]">
+      <created>1651696017905</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1651696017905</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +185,8 @@
     <MESSAGE value="implementation of React Player lib and testing its usage with &#10;customizing controls" />
     <MESSAGE value="clean up" />
     <MESSAGE value="styles and functionality [updated]" />
-    <option name="LAST_COMMIT_MESSAGE" value="styles and functionality [updated]" />
+    <MESSAGE value="state structure[updated]&#10;video reducer [fixed]" />
+    <option name="LAST_COMMIT_MESSAGE" value="state structure[updated]&#10;video reducer [fixed]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

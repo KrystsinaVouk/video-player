@@ -1,11 +1,11 @@
 .center {
-  background: antiquewhite;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 600px;
+  width: 900px;
   padding: 20px !important;
-  border-radius: 2%;
   box-shadow: 0 15px 25px;
+  background: darkgrey;
+  opacity: 0.7;
 }

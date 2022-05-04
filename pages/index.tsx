@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Grid} from "@material-ui/core";
+import {Card, Grid} from "@material-ui/core";
 import {useRouter} from "next/router";
 
 import Login from "./login";
@@ -8,6 +8,7 @@ import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useAppContext} from "../components/AppWrapper";
 // @ts-ignore
 import styles from "../styles/Index.module.scss"
+import VideoList from "../components/VideoList";
 
 
 export default function Index() {
@@ -19,7 +20,6 @@ export default function Index() {
     useEffect(() => {
         if (user) {
             localStorage.setItem('token', user.AuthorizationToken.Token);
-            router.push('/videos/');
         } else {
             router.push('/login');
         }
@@ -29,12 +29,26 @@ export default function Index() {
         <Login/> :
         (<>
             <MainLayout>
-                <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
-                    <Grid className={styles.center}>
-                        <h1>Welcome! <strong>{user.User.FullName}</strong></h1>
-                        <h3>Here all the best videos go!</h3>
-                    </Grid>
-                </Grid>
+                <Card className={styles.center}>
+                        <Grid container direction={"column"} justifyContent={"center"} alignItems="center">
+                            <h1>Welcome! <strong>{user.User.FullName}</strong></h1>
+                            <h3>Here all the best videos go!</h3>
+                        </Grid>
+                        <Grid container direction={"row"} wrap={'nowrap'}>
+                            <VideoList mediaListId={4} />
+                            <VideoList mediaListId={2} />
+                        </Grid>
+                </Card>
             </MainLayout>
         </>)
 }
+
+/*export const getServerSideProps = wrapper.getServerSideProps(async({res, store}) => {
+    const dispatch = store.dispatch as NextThunkDispatch;
+    console.log(store.getState());
+    console.log(localStorage.getItem('token'));
+    //const response = await dispatch(await fetchVideos(store.getState().user.user.AuthorizationToken.Token));
+    return {
+        props: {},
+    }
+})*/

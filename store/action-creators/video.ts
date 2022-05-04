@@ -11,17 +11,12 @@ const getMediaListBody = (mediaListId: number) => ({
     PageSize: 20
 });
 
-const getMediaPlayInfoBody = () => ({
-    MediaId: 15,
-    StreamType: "TRIAL"
-})
-
-export const fetchVideos = (mediaListId: number, token: string) => {
+export const fetchVideos = (listId: number, token: string) => {
     return async (dispatch: Dispatch<VideoAction>) => {
         try {
             const response = await axios.post(
                 'https://thebetter.bsgroup.eu/Media/GetMediaList',
-                getMediaListBody(mediaListId),
+                getMediaListBody(listId),
                 {
                     headers: {
                         "Authorization": `Bearer ${token}`,
@@ -30,8 +25,8 @@ export const fetchVideos = (mediaListId: number, token: string) => {
                 })
 
             dispatch({
-                type: mediaListId === 2 ? VideoActionTypes.FETCH_VIDEOS_1 : VideoActionTypes.FETCH_VIDEOS_2,
-                payload: response.data.Entities
+                type: VideoActionTypes.FETCH_VIDEOS,
+                payload: {data: response.data.Entities, listId: listId}
             })
 
         } catch (error) {

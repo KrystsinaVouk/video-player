@@ -31,7 +31,6 @@ const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
         <Card style={{
             maxWidth: 345,
             marginBottom: 10,
-            cursor: 'pointer',
             boxShadow:'0 5px 5px rgba(0,0,0,.6)'
         }}>
             <CardMedia
@@ -50,7 +49,6 @@ const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
             </CardContent>
             <CardActions>
                 <Button onClick={onClickVideo} size="small">Watch</Button>
-                <Button onClick={onClickVideo} size="small">Learn More</Button>
             </CardActions>
         </Card>
     );

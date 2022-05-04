@@ -18,7 +18,7 @@ import {useRouter} from "next/router";
 export default function Navbar() {
     const menuItems = [
         {text: 'Home', href: '/'},
-        {text: 'Videos', href: '/videos'},
+        {text: 'Videos', href: '/'},
         {text: 'Sign out', href: '/login'},
     ]
 

@@ -7,51 +7,46 @@ import {useRouter} from "next/router";
 import MainLayout from "../layouts/MainLayout";
 
 interface VideoListProps {
-    mediaListIds: number[]
+    mediaListId: number
 }
 
-const VideoList: React.FC<VideoListProps> = ({mediaListIds}) => {
+const VideoList: React.FC<VideoListProps> = ({mediaListId}) => {
 
     const {videos, error} = useTypedSelector(state => state.video);
     const {fetchVideos} = useActions();
     const router = useRouter();
 
     // @ts-ignore
-    useEffect( () => {
+    useEffect( async () => {
         try {
-            mediaListIds.forEach(value => {
-                fetchVideos(value, localStorage.getItem('token'))
-            })
+            fetchVideos(mediaListId, localStorage.getItem('token'))
         } catch (e) {
             router.push('/404');
         }
-    }, [mediaListIds])
+    }, [mediaListId])
 
     if (error) {
-        return <MainLayout>
-            {error}
-        </MainLayout>
+        return (
+            <MainLayout>
+                {error}
+            </MainLayout>
+        )
     }
 
-    return (
-        <>
-            <Grid container direction="column">
-                <Box p={2}>
-                    {videos.firstList.map(video =>
-                        <VideoItem key={video.Guid} video={video}/>
-                    )}
-                </Box>
-            </Grid>
-            <Grid container direction="column">
-                <Box p={2}>
-                    {videos.secondList.map(video =>
-                        <VideoItem key={video.Guid} video={video}/>
-                    )}
-                </Box>
-            </Grid>
-        </>
+    if (Object.keys(videos).length === 0) {
+        return <h1>Loading...</h1>
+    } else {
 
-    );
+        return (
+                <Grid container direction="column">
+                    <Box p={2}>
+                        {videos[mediaListId]?.map(video =>
+                            <VideoItem key={video.Guid} video={video}/>
+                        )}
+                    </Box>
+                </Grid>
+        );
+    }
 };
 
 export default VideoList;

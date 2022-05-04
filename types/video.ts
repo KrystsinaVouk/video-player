@@ -42,24 +42,21 @@ interface IProduct {
 
 export interface IVideoState {
     videos: {
-        firstList: IVideoMediaContent[],
-        secondList: IVideoMediaContent[]
+        [key: number]: IVideoMediaContent[]
     },
     error: string
 }
 export enum VideoActionTypes {
-    FETCH_VIDEOS_1 = 'FETCH_VIDEOS_1',
-    FETCH_VIDEOS_2 = 'FETCH_VIDEOS_2',
+    FETCH_VIDEOS = 'FETCH_VIDEOS',
     FETCH_VIDEOS_ERROR = 'FETCH_VIDEOS_ERROR'
 }
 
-interface IFetchVideosAction_1 {
-    type: VideoActionTypes.FETCH_VIDEOS_1,
-    payload: IVideoMediaContent[]
-}
-interface IFetchVideosAction_2 {
-    type: VideoActionTypes.FETCH_VIDEOS_2,
-    payload: IVideoMediaContent[]
+interface IFetchVideosAction {
+    type: VideoActionTypes.FETCH_VIDEOS,
+    payload: {
+        data: IVideoMediaContent[],
+        listId: number
+    }
 }
 
 interface IFetchVideosErrorAction {
@@ -67,4 +64,4 @@ interface IFetchVideosErrorAction {
     payload: string
 }
 
-export type VideoAction = IFetchVideosAction_1 | IFetchVideosAction_2 | IFetchVideosErrorAction;
+export type VideoAction = IFetchVideosAction | IFetchVideosErrorAction;
