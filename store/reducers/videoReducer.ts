@@ -1,23 +1,17 @@
 import {IVideoState, VideoAction, VideoActionTypes} from "../../types/video";
 
 const initialState: IVideoState = {
-    videos: {
-        firstList:[],
-        secondList:[]
-    },
+    videos: {},
     error: ''
 }
 
 export const videoReducer = (state= initialState, action: VideoAction): IVideoState => {
     switch (action.type) {
-        case VideoActionTypes.FETCH_VIDEOS_1:
+        case VideoActionTypes.FETCH_VIDEOS:
             return {
-                videos: {firstList: action.payload, secondList: state.videos.secondList},
-                error: ''
-            }
-        case VideoActionTypes.FETCH_VIDEOS_2:
-            return {
-                videos: {firstList: state.videos.firstList, secondList: action.payload},
+                videos: { ...state.videos,
+                    [action.payload.listId]: action.payload.data
+                },
                 error: ''
             }
         case VideoActionTypes.FETCH_VIDEOS_ERROR:

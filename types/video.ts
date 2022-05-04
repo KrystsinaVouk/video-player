@@ -15,17 +15,6 @@ export interface IVideoMediaContent {
     Products: IProduct[];
 }
 
-export interface IVideo {
-    MediaId: number;
-    Title: string;
-    Description: string;
-    MediaTypeCode: string;
-    MediaTypeDisplayName: string;
-    StreamId: number;
-    Provider: string;
-    ContentUrl: string;
-}
-
 export interface IImage {
     Id: number;
     MediaId: number;

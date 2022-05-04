@@ -1,7 +1,18 @@
-import {IVideo, IVideoMediaContent} from "./video";
+export interface IPlayerInfo {
+  MediaId: number;
+  Title: string;
+  Description: string;
+  MediaTypeCode: string;
+  MediaTypeDisplayName: string;
+  StreamId: number;
+  Provider: string;
+  ContentUrl: string;
+}
 
 export interface PlayerState {
-  active: null | IVideo;
+  playerInfo: null | IPlayerInfo;
+  active: null | IPlayerInfo;
+  error: string;
   volume: number;
   duration: number;
   currentTime: number;
@@ -9,6 +20,9 @@ export interface PlayerState {
 }
 
 export enum PlayerActionTypes {
+  FETCH_PLAYER_INFO = 'FETCH_PLAYER_INFO',
+  FETCH_PLAYER_INFO_ERROR = 'FETCH_PLAYER_INFO_ERROR',
+
   PLAY = "PLAY",
   PAUSE = "PAUSE",
   SET_ACTIVE = "SET_ACTIVE",
@@ -27,7 +41,7 @@ interface PauseAction {
 
 interface SetActiveAction {
   type: PlayerActionTypes.SET_ACTIVE;
-  payload: IVideoMediaContent;
+  payload: IPlayerInfo;
 }
 
 interface SetDurationAction {
@@ -45,7 +59,21 @@ interface SetCurrentTimeAction {
   payload: number;
 }
 
+
+interface IFetchPlayerInfoAction {
+  type: PlayerActionTypes.FETCH_PLAYER_INFO,
+  payload: IPlayerInfo
+}
+
+interface IFetchPlayerInfoErrorAction {
+  type: PlayerActionTypes.FETCH_PLAYER_INFO_ERROR,
+  payload: string
+}
+
 export type PlayerAction =
+  | IFetchPlayerInfoAction
+  | IFetchPlayerInfoErrorAction
+
   | PlayAction
   | PauseAction
   | SetActiveAction

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Box, Grid} from "@material-ui/core";
+import {Box, CircularProgress, Grid} from "@material-ui/core";
 import VideoItem from "./VideoItem";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
@@ -13,13 +13,14 @@ interface VideoListProps {
 const VideoList: React.FC<VideoListProps> = ({mediaListId}) => {
 
     const {videos, error} = useTypedSelector(state => state.video);
-    const {fetchVideos} = useActions();
+    const {fetchVideos, fetchPlayerInfo} = useActions();
     const router = useRouter();
 
     // @ts-ignore
     useEffect( async () => {
         try {
-            fetchVideos(mediaListId, localStorage.getItem('token'))
+            fetchVideos(mediaListId, localStorage.getItem('token'));
+            fetchPlayerInfo(15, "TRIAL", localStorage.getItem('token'));
         } catch (e) {
             router.push('/404');
         }
@@ -34,14 +35,16 @@ const VideoList: React.FC<VideoListProps> = ({mediaListId}) => {
     }
 
     if (Object.keys(videos).length === 0) {
-        return <h1>Loading...</h1>
+        return  <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
+                    <CircularProgress color="inherit" />
+                    <h1>Loading the list of videos...</h1>
+                </Grid>
     } else {
-
         return (
                 <Grid container direction="column">
                     <Box p={2}>
                         {videos[mediaListId]?.map(video =>
-                            <VideoItem key={video.Guid} video={video}/>
+                            <VideoItem key={video.Id} video={video}/>
                         )}
                     </Box>
                 </Grid>

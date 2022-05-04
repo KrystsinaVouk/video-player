@@ -1,13 +1,11 @@
-import {
-  PlayerAction,
-  PlayerActionTypes,
-  PlayerState,
-} from "../../types/player";
+import {PlayerAction, PlayerActionTypes, PlayerState,} from "../../types/player";
 
 const initialState: PlayerState = {
   currentTime: 0,
   duration: 0,
   active: null,
+  playerInfo: null,
+  error: '',
   pause: true,
   volume: 50,
 };
@@ -17,6 +15,10 @@ export const playerReducer = (
   action: PlayerAction
 ): PlayerState => {
   switch (action.type) {
+    case PlayerActionTypes.FETCH_PLAYER_INFO:
+      return {...state, playerInfo: action.payload}
+    case PlayerActionTypes.FETCH_PLAYER_INFO_ERROR:
+      return {...state, error: action.payload}
     case PlayerActionTypes.PLAY:
       return { ...state, pause: false };
     case PlayerActionTypes.PAUSE:

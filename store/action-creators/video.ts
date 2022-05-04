@@ -1,6 +1,7 @@
-import {VideoAction, VideoActionTypes} from "../../types/video";
 import {Dispatch} from "react";
 import axios from "axios";
+import {VideoAction, VideoActionTypes} from "../../types/video";
+
 
 const getMediaListBody = (mediaListId: number) => ({
     MediaListId: mediaListId,

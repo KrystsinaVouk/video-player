@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="state structure[updated]&#10;video reducer [fixed]">
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="fetching player info [created]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/videos/[Guid].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Guid].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/player.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/action-creators/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/reducers/playerReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/playerReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/reducers/videoReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/videoReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/player.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +88,7 @@
       <workItem from="1651592644523" duration="1449000" />
       <workItem from="1651598234905" duration="6368000" />
       <workItem from="1651610473854" duration="10023000" />
-      <workItem from="1651695857995" duration="4634000" />
+      <workItem from="1651695857995" duration="9689000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -155,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651696017905</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="state structure[updated]&#10;video reducer [fixed]">
+      <created>1651700551924</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651700551924</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +191,8 @@
     <MESSAGE value="clean up" />
     <MESSAGE value="styles and functionality [updated]" />
     <MESSAGE value="state structure[updated]&#10;video reducer [fixed]" />
-    <option name="LAST_COMMIT_MESSAGE" value="state structure[updated]&#10;video reducer [fixed]" />
+    <MESSAGE value="fetching player info [created]" />
+    <option name="LAST_COMMIT_MESSAGE" value="fetching player info [created]" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

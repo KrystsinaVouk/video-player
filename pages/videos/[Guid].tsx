@@ -3,6 +3,7 @@ import {Button, Grid} from "@material-ui/core";
 import MainLayout from "../../layouts/MainLayout";
 import {useRouter} from "next/router";
 import Player from "../../components/Player";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const VideoPage = () => {
     const router = useRouter();
@@ -35,7 +36,7 @@ const VideoPage = () => {
 
     return (
         <MainLayout>
-            <Grid style={{background:'papayawhip', margin:100, padding:20, borderRadius:'2%'}}>
+            <Grid style={{background:'papayawhip', margin:'100px 100px 10px', padding:20, borderRadius:'2%'}}>
                 <Button
                     variant={"outlined"}
                     style={{fontSize: 10}}
@@ -43,7 +44,7 @@ const VideoPage = () => {
                 >
                     Come back to the videos
                 </Button>
-                <Grid container style={{margin: '20px 0'}}>
+                <Grid container style={{margin: '10px 0'}}>
                     <img alt={video.Title} src={video.MediaAgeRestrictionImageUrl} width={200} height={200}/>
                     <div style={{marginLeft: 30}}>
                         <h1>{video.Title}</h1>
@@ -54,7 +55,7 @@ const VideoPage = () => {
                 <h1>Description</h1>
                 <p>{video.Description}</p>
             </Grid>
-            <Player />
+            <Player mediaId={15} streamType={"TRIAL"} video={video}/>
         </MainLayout>
     );
 };
