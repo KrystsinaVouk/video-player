@@ -35,24 +35,25 @@ const VideoPage = () => {
 
     return (
         <MainLayout>
-            <Button
-                variant={"outlined"}
-                style={{fontSize: 32}}
-                onClick={() => router.push('/videos')}
-            >
-                Come back to the videos
-            </Button>
-            <Grid container style={{margin: '20px 0'}}>
-                <img alt={video.Title} src={video.MediaAgeRestrictionImageUrl} width={200} height={200}/>
-                <div style={{marginLeft: 30}}>
-                    <h1>{video.Title}</h1>
-                    <h3>Media Type - {video.MediaTypeDisplayName}</h3>
-                    <h3>Year - {video.Year}</h3>
-                </div>
+            <Grid style={{background:'papayawhip', margin:100, padding:20, borderRadius:'2%'}}>
+                <Button
+                    variant={"outlined"}
+                    style={{fontSize: 12}}
+                    onClick={() => router.push('/videos')}
+                >
+                    Come back to the videos
+                </Button>
+                <Grid container style={{margin: '20px 0'}}>
+                    <img alt={video.Title} src={video.MediaAgeRestrictionImageUrl} width={200} height={200}/>
+                    <div style={{marginLeft: 30}}>
+                        <h1>{video.Title}</h1>
+                        <h3>Media Type - {video.MediaTypeDisplayName}</h3>
+                        <h3>Year - {video.Year}</h3>
+                    </div>
+                </Grid>
+                <h1>Description</h1>
+                <p>{video.Description}</p>
             </Grid>
-            <h1>Description</h1>
-            <p>{video.Description}</p>
-
             <Player />
         </MainLayout>
     );

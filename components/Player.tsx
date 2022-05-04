@@ -31,10 +31,14 @@ function Player() {
     }
 
     return (
-        <Grid container direction={"column"}>
+        <Grid container direction={"column"} style={{
+            margin:100,
+            width:'fit-content',
+            boxShadow: '5px 5px 5px 5px rgba(255,255,255)'
+        }}>
             <ReactPlayer
                 ref = {playerRef}
-                url = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
+                url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4' }
                 playing = {!pause}
                 volume = {volume / 100}
                 duration = {duration}
@@ -42,6 +46,7 @@ function Player() {
                 onReady = {onReady}
                 onProgress = {onChangeProgress}
                 fallback={<CircularProgress color="inherit" />}
+                style={{display:'contents'}}
             />
 
             <div className={styles.player}>
@@ -56,7 +61,8 @@ function Player() {
                     left={Math.ceil(currentTime)}
                     right={duration}
                     onChange={changeCurrentTime}
-                    width={'700px'}
+                    width={700}
+                    sec={'seconds'}
                 />
                 <VolumeUp style={{marginLeft: 'auto'}}/>
                 <VideoProgress

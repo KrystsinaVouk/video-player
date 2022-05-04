@@ -1,4 +1,4 @@
-import { IVideo } from "./video";
+import {IVideo, IVideoMediaContent} from "./video";
 
 export interface PlayerState {
   active: null | IVideo;
@@ -27,7 +27,7 @@ interface PauseAction {
 
 interface SetActiveAction {
   type: PlayerActionTypes.SET_ACTIVE;
-  payload: IVideo;
+  payload: IVideoMediaContent;
 }
 
 interface SetDurationAction {

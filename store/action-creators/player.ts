@@ -1,5 +1,5 @@
 import { PlayerAction, PlayerActionTypes } from "../../types/player";
-import { IVideo } from "../../types/video";
+import {IVideoMediaContent} from "../../types/video";
 
 export const playVideo = (): PlayerAction => {
   return { type: PlayerActionTypes.PLAY };
@@ -7,7 +7,7 @@ export const playVideo = (): PlayerAction => {
 export const pauseVideo = (): PlayerAction => {
   return { type: PlayerActionTypes.PAUSE };
 };
-export const setActive = (payload: IVideo): PlayerAction => {
+export const setActive = (payload: IVideoMediaContent): PlayerAction => {
   return { type: PlayerActionTypes.SET_ACTIVE, payload };
 };
 export const setCurrentTime = (payload: number): PlayerAction => {

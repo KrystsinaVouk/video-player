@@ -4,13 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="implementation of React Player lib and testing its usage with &#10;customizing controls">
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="styles and functionality [updated]">
+      <change afterPath="$PROJECT_DIR$/components/AppWrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/context/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useInput.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useLogin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/action-creators/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/action-creators/video.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/reducers/userReducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/reducers/videoReducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Login.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/VideoProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoProgress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/[Guid].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Guid].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/videos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/player.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/types/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +46,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="28TxpeFBM53KHQRPT2uQVk7O5Sq" />
   <component name="ProjectLevelVcsManager">
@@ -34,6 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../OTT-web-application" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,7 +104,14 @@
       <workItem from="1651435390608" duration="11792000" />
       <workItem from="1651487730415" duration="377000" />
       <workItem from="1651490952264" duration="52000" />
-      <workItem from="1651496077740" duration="4578000" />
+      <workItem from="1651496077740" duration="5077000" />
+      <workItem from="1651504047694" duration="11165000" />
+      <workItem from="1651526022148" duration="11976000" />
+      <workItem from="1651574623581" duration="12839000" />
+      <workItem from="1651592644523" duration="1449000" />
+      <workItem from="1651598234905" duration="6368000" />
+      <workItem from="1651610473854" duration="10023000" />
+      <workItem from="1651695857995" duration="149000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -120,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651488030781</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="clean up">
+      <created>1651500783275</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651500783275</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +197,19 @@
     <MESSAGE value="video type [corrected]" />
     <MESSAGE value="custom hooks [added]&#10;configuration of action creators" />
     <MESSAGE value="implementation of React Player lib and testing its usage with &#10;customizing controls" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation of React Player lib and testing its usage with &#10;customizing controls" />
+    <MESSAGE value="clean up" />
+    <MESSAGE value="styles and functionality [updated]" />
+    <option name="LAST_COMMIT_MESSAGE" value="styles and functionality [updated]" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/pages/login.tsx</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

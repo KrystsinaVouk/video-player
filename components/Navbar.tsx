@@ -15,13 +15,13 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useRouter} from "next/router";
 
-const menuItems = [
-    {text: 'Home', href: '/'},
-    {text: 'Videos', href: '/videos'},
-    {text: 'Sign out', href: '/signout'},
-]
-
 export default function Navbar() {
+    const menuItems = [
+        {text: 'Home', href: '/'},
+        {text: 'Videos', href: '/videos'},
+        {text: 'Sign out', href: '/login'},
+    ]
+
     const [open, setOpen] = React.useState(false);
     const router = useRouter()
 
@@ -37,6 +37,7 @@ export default function Navbar() {
         <div>
             <CssBaseline/>
             <AppBar
+                style={{background:'darkgrey', color:'black', boxShadow: '0 3px 3px rgba(0,0,0,.1)'}}
                 position="fixed"
             >
                 <Toolbar>
@@ -59,13 +60,16 @@ export default function Navbar() {
                 open={open}
             >
                 <div>
-                    <IconButton onClick={handleDrawerClose}>
+                    <IconButton
+                        style={{ boxShadow: '0 5px 5px rgba(0,0,0,.1)'}}
+                        onClick={handleDrawerClose}>
                         <ChevronLeftIcon/>
                     </IconButton>
                 </div>
                 <List>
                     {menuItems.map(({text, href}, index) => (
-                        <ListItem button key={href} onClick={() => router.push(href)}>
+                        <ListItem style={{ boxShadow: '0 5px 5px rgba(0,0,0,.3)'}}
+                            button key={href} onClick={() => router.push(href)}>
                             <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
                             </ListItemIcon>

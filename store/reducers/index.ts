@@ -1,9 +1,13 @@
 import {combineReducers} from "redux";
 import {playerReducer} from "./playerReducer";
 import {HYDRATE} from "next-redux-wrapper";
+import {videoReducer} from "./videoReducer";
+import {userReducer} from "./userReducer";
 
 const rootReducer = combineReducers({
-    player: playerReducer
+    player: playerReducer,
+    video: videoReducer,
+    user: userReducer
 })
 
 export const reducer = (state, action) => {

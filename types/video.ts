@@ -1,4 +1,4 @@
-export interface IVideoMediaCOntent {
+export interface IVideoMediaContent {
     Id: number;
     Guid: string;
     MediaTypeCode: string;
@@ -26,7 +26,7 @@ export interface IVideo {
     ContentUrl: string;
 }
 
-interface IImage {
+export interface IImage {
     Id: number;
     MediaId: number;
     PlatformCode: string;
@@ -39,3 +39,32 @@ interface IImage {
 interface IProduct {
     Id: number;
 }
+
+export interface IVideoState {
+    videos: {
+        firstList: IVideoMediaContent[],
+        secondList: IVideoMediaContent[]
+    },
+    error: string
+}
+export enum VideoActionTypes {
+    FETCH_VIDEOS_1 = 'FETCH_VIDEOS_1',
+    FETCH_VIDEOS_2 = 'FETCH_VIDEOS_2',
+    FETCH_VIDEOS_ERROR = 'FETCH_VIDEOS_ERROR'
+}
+
+interface IFetchVideosAction_1 {
+    type: VideoActionTypes.FETCH_VIDEOS_1,
+    payload: IVideoMediaContent[]
+}
+interface IFetchVideosAction_2 {
+    type: VideoActionTypes.FETCH_VIDEOS_2,
+    payload: IVideoMediaContent[]
+}
+
+interface IFetchVideosErrorAction {
+    type: VideoActionTypes.FETCH_VIDEOS_ERROR,
+    payload: string
+}
+
+export type VideoAction = IFetchVideosAction_1 | IFetchVideosAction_2 | IFetchVideosErrorAction;

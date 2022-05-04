@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  align-items: center;
+  padding: 20px !important;
+  width: 400px;
+  background: antiquewhite;
+  border-radius: 2%;
+  box-shadow: 2px 3px 5px 2px rgb(255 255 255 / 70%);
+}
+
+.field {
+  box-shadow: 0 5px 5px rgba(0,0,0,.6);
+}
+
+.gridBtn {
+  margin-top: 15px;
+}
+
+.btnLogin {
+  box-shadow: 0 25px 35px rgba(0,0,0,.6);
+  font-size: 1rem;
+}
+
+.btnLogin:disabled {
+    cursor: not-allowed;
+    pointer-events: auto;
+}
+
+.btnLogin > span {
+  font-size: 1.5rem;
+}
