@@ -1,12 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Button, FormControl, Grid, TextField} from "@material-ui/core";
 // @ts-ignore
 import styles from '../styles/Login.module.scss'
 import {useLogin} from "../hooks/useLogin";
+import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useRouter} from "next/router";
 
 const Login = () => {
 
     const {username, password, errorText, isDisabled, login} = useLogin();
+    const {user} = useTypedSelector(state => state.user)
+    const router = useRouter();
+
+    useEffect(()=> {
+        if (user) {
+            router.push('/')
+        }
+    }, [])
 
     return (
         <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>

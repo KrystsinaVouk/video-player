@@ -1,35 +1,30 @@
 import {Dispatch} from "react";
-import axios from "axios";
-import {IPlayerInfo, PlayerAction, PlayerActionTypes} from "../../types/player";
+import {IPlayerRequestBody, IPlayerResponse, PlayerAction, PlayerActionTypes} from "../../types/player";
+import {IVideoMediaContent} from "../../types/video";
+import {http} from "../../config/http";
+import {endpoints} from "../../config/endpoints";
+import {errorMessage} from "../../config/errorMessages";
 
 
-export const fetchPlayerInfo = (mediaId: number, streamType: string, token) => {
+export const fetchPlayerInfo = (mediaId: number, streamType: string) => {
   return async (dispatch: Dispatch<PlayerAction>) => {
     try {
-      const response = await axios.post(
-          'https://thebetter.bsgroup.eu/Media/GetMediaPlayInfo',
+      const { data } = await http.post<IPlayerRequestBody, IPlayerResponse>(
+          endpoints.GET_PLAYER_INFO,
           {
-              MediaId: 15,
-              StreamType: "TRIAL"
-          },
-          {
-            headers: {
-              "Authorization": `Bearer ${token}`,
-              "Content-Type": 'application/json'
-            }
+              MediaId: mediaId,
+              StreamType: streamType
           })
-
-        console.log(response.data)
 
       dispatch({
         type: PlayerActionTypes.FETCH_PLAYER_INFO,
-        payload: response.data
+        payload: data
       })
 
     } catch (error) {
       dispatch({
         type: PlayerActionTypes.FETCH_PLAYER_INFO_ERROR,
-        payload: "The error has been occurred during the fetching player information..."
+        payload: errorMessage.FETCH_PLAYER
       })
     }
   }
@@ -42,7 +37,7 @@ export const playVideo = (): PlayerAction => {
 export const pauseVideo = (): PlayerAction => {
   return { type: PlayerActionTypes.PAUSE };
 };
-export const setActive = (payload: IPlayerInfo): PlayerAction => {
+export const setActive = (payload: IVideoMediaContent): PlayerAction => {
   return { type: PlayerActionTypes.SET_ACTIVE, payload };
 };
 export const setCurrentTime = (payload: number): PlayerAction => {

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Card, Grid} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import {useRouter} from "next/router";
 
 import Login from "./login";
@@ -23,22 +23,21 @@ export default function Index() {
         } else {
             router.push('/login');
         }
-    }, [user, isAuth]);
+    }, []);
 
     return (!isAuth) ?
         <Login/> :
         (<>
             <MainLayout>
-                <Card className={styles.center}>
+                <Grid className={styles.videoListContainer}>
                         <Grid container direction={"column"} justifyContent={"center"} alignItems="center">
                             <h1>Welcome! <strong>{user.User.FullName}</strong></h1>
                             <h3>Here all the best videos go!</h3>
                         </Grid>
                         <Grid container direction={"row"} wrap={'nowrap'}>
-                            <VideoList mediaListId={4} />
-                            <VideoList mediaListId={2} />
+                            {[2,4].map(key => <VideoList mediaListId={key} key={key} />)}
                         </Grid>
-                </Card>
+                </Grid>
             </MainLayout>
         </>)
 }

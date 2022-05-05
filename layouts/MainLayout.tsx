@@ -12,7 +12,8 @@ const MainLayout: React.FC = ({children}) => {
                     backgroundColor:'#141e30',
                     display:'flex',
                     flexDirection:'column',
-                    justifyContent:'center'
+                    justifyContent:'center',
+                    alignItems: 'center'
                 }}>
                 {children}
             </Container>

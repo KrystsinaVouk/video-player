@@ -16,11 +16,13 @@ const VideoList: React.FC<VideoListProps> = ({mediaListId}) => {
     const {fetchVideos, fetchPlayerInfo} = useActions();
     const router = useRouter();
 
-    // @ts-ignore
-    useEffect( async () => {
+    useEffect(  () => {
         try {
-            fetchVideos(mediaListId, localStorage.getItem('token'));
-            fetchPlayerInfo(15, "TRIAL", localStorage.getItem('token'));
+            const fetchData = async () => {
+                await fetchVideos(mediaListId);
+                await fetchPlayerInfo(15, "TRIAL");
+            }
+            fetchData();
         } catch (e) {
             router.push('/404');
         }

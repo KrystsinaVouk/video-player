@@ -1,9 +1,10 @@
 import {Dispatch} from "react";
-import axios from "axios";
-import {VideoAction, VideoActionTypes} from "../../types/video";
+import {IVideoListRequest, IVideoListResponse, VideoAction, VideoActionTypes} from "../../types/video";
+import {http} from "../../config/http";
+import {endpoints} from "../../config/endpoints";
+import {errorMessage} from "../../config/errorMessages";
 
-
-const getMediaListBody = (mediaListId: number) => ({
+const getMediaListBody = (mediaListId: number) : IVideoListRequest => ({
     MediaListId: mediaListId,
     IncludeCategories: false,
     IncludeImages: true,
@@ -12,28 +13,23 @@ const getMediaListBody = (mediaListId: number) => ({
     PageSize: 20
 });
 
-export const fetchVideos = (listId: number, token: string) => {
+export const fetchVideos = (listId: number) => {
     return async (dispatch: Dispatch<VideoAction>) => {
         try {
-            const response = await axios.post(
-                'https://thebetter.bsgroup.eu/Media/GetMediaList',
-                getMediaListBody(listId),
-                {
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                        "Content-Type": 'application/json'
-                    }
-                })
+            const { data } = await http.post<IVideoListRequest, IVideoListResponse>(
+                endpoints.GET_MEDIA_LIST,
+                getMediaListBody(listId)
+            )
 
             dispatch({
                 type: VideoActionTypes.FETCH_VIDEOS,
-                payload: {data: response.data.Entities, listId: listId}
+                payload: {data: data.Entities, listId: listId}
             })
 
         } catch (error) {
             dispatch({
                 type: VideoActionTypes.FETCH_VIDEOS_ERROR,
-                payload: "The error has been occurred during the loading videos..."
+                payload: errorMessage.FETCH_MEDIA_LIST
             })
         }
     }

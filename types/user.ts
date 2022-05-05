@@ -15,6 +15,7 @@ export type User = {
     AuthorizationToken: IToken
 }
 
+
 export interface IUserState {
     user: User
     error: string
@@ -25,10 +26,13 @@ export enum UserActionTypes {
     FETCH_USER_ERROR = 'FETCH_USER_ERROR'
 }
 
-export interface IUserBody {
+export interface IUserRequestBody {
     Username: string;
     Password: string;
     Device: IDevice;
+}
+export interface IUserResponse {
+    data: User
 }
 
 interface IDevice {

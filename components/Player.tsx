@@ -7,39 +7,49 @@ import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
 // @ts-ignore
 import styles from "../styles/Player.module.scss"
-import {fetchPlayerInfo} from "../store/action-creators/player";
-import {useRouter} from "next/router";
+import MainLayout from "../layouts/MainLayout";
 
 
-function Player({mediaId, streamType }) {
+function Player({mediaId, streamType}) {
     const playerRef = useRef<React.RefObject<HTMLMediaElement> | null>();
     const {playerInfo, error, pause, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
-    const {playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
-    const router = useRouter();
-
+    const {fetchPlayerInfo, playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
     const onPlay = () => pause ? playVideo() : pauseVideo();
 
     const onReady = () => {
-        setDuration(52)
+        setDuration(active.Duration)
     }
     const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
         setVolume(Number(event.target.value));
     }
     const changeCurrentTime = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrentTime(Number(event.target.value));
+        // @ts-ignore
         playerRef.current.player.seekTo(Number(event.target.value));
     }
     const onChangeProgress = ({playedSeconds}) => {
         setCurrentTime(playedSeconds);
     }
 
-    useEffect( () => {
+    useEffect(() => {
         try {
-            fetchPlayerInfo(mediaId, streamType, localStorage.getItem('token'));
+            const fetchData = async () => {
+                await fetchPlayerInfo(mediaId, streamType);
+            };
+
+            fetchData();
         } catch (e) {
-            router.push('/404')
+           console.log(e);
         }
-    }, [mediaId, streamType])
+    }, []);
+
+    if (error) {
+        return (
+            <MainLayout>
+                <h1>{error}</h1>
+            </MainLayout>
+        )
+    }
 
     if (!playerInfo) {
        return (
@@ -52,12 +62,13 @@ function Player({mediaId, streamType }) {
         return (
             <Grid container direction={"column"} style={{
                 margin:100,
-                width:'fit-content',
-                boxShadow: '2px 2px 2px 2px rgba(255,255,255)'
+                width: '82%',
+                height: 550,
+                boxShadow:'0 5px 5px rgba(255,255,255,.6)'
             }}>
                 <ReactPlayer
                     ref = {playerRef}
-                    url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4' }
+                    url = {'https://www.youtube.com/watch?v=A0CfYSVzAZI'}
                     playing = {!pause}
                     volume = {volume / 100}
                     duration = {duration}

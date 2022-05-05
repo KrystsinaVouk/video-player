@@ -1,6 +1,6 @@
 import React from 'react';
 import {IImage, IVideoMediaContent} from "../types/video";
-import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@material-ui/core";
+import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
 import {useRouter} from "next/router";
 import {useActions} from "../hooks/useActions";
 // @ts-ignore
@@ -28,10 +28,14 @@ const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
     }
 
     return (
-        <Card style={{
+        <Card
+            onClick={onClickVideo}
+            style={{
             maxWidth: 345,
-            marginBottom: 10,
-            boxShadow:'0 5px 5px rgba(0,0,0,.6)'
+            height: 300,
+            marginBottom: 15,
+            boxShadow:'0 5px 5px rgba(0,0,0,.6)',
+            cursor: 'pointer'
         }}>
             <CardMedia
                 component="img"
@@ -43,13 +47,7 @@ const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
                 <Typography gutterBottom variant="h5" component="div">
                     {video.Title}
                 </Typography>
-                <Typography variant="body2" color="inherit">
-                    {video.Description}
-                </Typography>
             </CardContent>
-            <CardActions>
-                <Button onClick={onClickVideo} size="small">Watch</Button>
-            </CardActions>
         </Card>
     );
 };

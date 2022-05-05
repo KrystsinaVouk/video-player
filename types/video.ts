@@ -28,6 +28,23 @@ export interface IImage {
 interface IProduct {
     Id: number;
 }
+export interface IVideoListRequest {
+    MediaListId: number;
+    IncludeCategories: boolean;
+    IncludeImages: boolean;
+    IncludeMedia: boolean;
+    PageNumber: number;
+    PageSize: number;
+}
+export interface IVideoListResponse {
+    data: {
+        Entities: IVideoMediaContent[];
+        PageNumber: number;
+        PageSize: number;
+        SourceType: string;
+        TotalCount: number;
+    }
+}
 
 export interface IVideoState {
     videos: {
