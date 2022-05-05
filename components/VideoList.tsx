@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {Box, CircularProgress, Grid} from "@material-ui/core";
+import {Box, Grid, Typography} from "@material-ui/core";
 import VideoItem from "./VideoItem";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useActions";
-import {useRouter} from "next/router";
 import MainLayout from "../layouts/MainLayout";
+import Loader from "./Loader";
 
 interface VideoListProps {
     mediaListId: number
@@ -12,34 +12,29 @@ interface VideoListProps {
 
 const VideoList: React.FC<VideoListProps> = ({mediaListId}) => {
 
-    const {videos, error} = useTypedSelector(state => state.video);
-    const {fetchVideos, fetchPlayerInfo} = useActions();
-    const router = useRouter();
+    const { videos, error } = useTypedSelector(state => state.video);
+    const { fetchVideos } = useActions();
 
     useEffect(  () => {
-        try {
-            const fetchData = async () => {
-                await fetchVideos(mediaListId);
-                await fetchPlayerInfo(15, "TRIAL");
-            }
-            fetchData();
-        } catch (e) {
-            router.push('/404');
+        const fetchData = async () => {
+            await fetchVideos(mediaListId);
         }
+        fetchData();
     }, [mediaListId])
 
     if (error) {
         return (
             <MainLayout>
-                {error}
+                <Typography color={'secondary'} variant={'h5'}>{error}</Typography>
             </MainLayout>
         )
     }
 
     if (Object.keys(videos).length === 0) {
         return  <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
-                    <CircularProgress color="inherit" />
-                    <h1>Loading the list of videos...</h1>
+                    <Loader color={'#141e30'}>
+                        Loading the list of videos...
+                    </Loader>
                 </Grid>
     } else {
         return (

@@ -14,16 +14,23 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useRouter} from "next/router";
+import {useActions} from "../hooks/useActions";
+import {useEffect} from "react";
+import {useTypedSelector} from "../hooks/useTypedSelector";
 
 export default function Navbar() {
+    const router = useRouter()
+    const {removeUser} = useActions();
+    const {user} = useTypedSelector(state => state.user);
+
     const menuItems = [
-        {text: 'Home', href: '/'},
-        {text: 'Videos', href: '/'},
-        {text: 'Sign out', href: '/login'},
+        {text: 'Home', onClick: () => router.push('/')},
+        {text: 'Videos', onClick: () => router.push('/')},
+        {text: 'Sign out', onClick: () => removeUser()},
     ]
 
     const [open, setOpen] = React.useState(false);
-    const router = useRouter()
+
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -32,6 +39,12 @@ export default function Navbar() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    useEffect(()=> {
+        if (!user) {
+            router.push('/');
+        }
+    }, [user])
 
     return (
         <div>
@@ -67,9 +80,12 @@ export default function Navbar() {
                     </IconButton>
                 </div>
                 <List>
-                    {menuItems.map(({text, href}, index) => (
-                        <ListItem style={{ boxShadow: '0 5px 5px rgba(0,0,0,.3)'}}
-                            button key={href} onClick={() => router.push(href)}>
+                    {menuItems.map(({text, onClick}, index) => (
+                        <ListItem
+                            style={{ boxShadow: '0 5px 5px rgba(0,0,0,.3)'}}
+                            button
+                            key={text}
+                            onClick={()=>removeUser()}>
                             <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
                             </ListItemIcon>

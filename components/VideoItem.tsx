@@ -12,7 +12,7 @@ interface IVideoItemProps {
 
 const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
     const {setActive} = useActions();
-    const router = useRouter();
+    const { push } = useRouter();
 
     const getFrameImage = (images: IImage[]) => {
         const imageFrame = images.filter(
@@ -24,7 +24,7 @@ const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
 
     const onClickVideo = () => {
         setActive(video);
-        router.push(`/videos/${video.Id}`);
+        push(`/videos/${video.Id}?streamType=TRIAL`);
     }
 
     return (

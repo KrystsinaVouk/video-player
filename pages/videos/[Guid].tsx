@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
-import {Button, Grid} from "@material-ui/core";
-import MainLayout from "../../layouts/MainLayout";
 import {useRouter} from "next/router";
+
+import MainLayout from "../../layouts/MainLayout";
 import Player from "../../components/Player";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import VideoCard from "../../components/VideoCard";
 
 const VideoPage = () => {
-    const router = useRouter();
+    const {query, push} = useRouter();
     const {active} = useTypedSelector(state => state.player);
 
     useEffect(()=> {
         if (!active) {
-            router.push('/');
+            push('/');
         }
     }, [])
 
@@ -19,26 +20,8 @@ const VideoPage = () => {
         <MainLayout>
             {active &&
             <>
-                <Grid style={{background:'papayawhip', margin:'100px 100px 10px', padding:20, borderRadius:'2%'}}>
-                    <Button
-                        variant={"outlined"}
-                        style={{fontSize: 10}}
-                        onClick={() => router.push('/')}
-                    >
-                        Come back to the videos
-                    </Button>
-                    <Grid container style={{margin: '10px 0'}}>
-                        <img alt={active.Title} src={active.MediaAgeRestrictionImageUrl} width={200} height={200}/>
-                        <div style={{marginLeft: 30}}>
-                            <h1>{active.Title}</h1>
-                            <h3>Media Type - {active.MediaTypeDisplayName}</h3>
-                            <h3>Year - {active.Year}</h3>
-                        </div>
-                    </Grid>
-                    <h1>Description</h1>
-                    <p>{active.Description}</p>
-                </Grid>
-                <Player mediaId={15} streamType={"TRIAL"} />
+                <VideoCard videoInfo={active} />
+                <Player streamType={query.streamType} />
             </>}
         </MainLayout>
     );

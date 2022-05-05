@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
 import {NextThunkDispatch} from "../store";
 import {fetchUser} from "../store/action-creators/user";
-import {useAppContext} from "../components/AppWrapper";
+import {IUserRequestBody} from "../types/user";
 
 export const useLogin = () => {
     const username = useInput("");
@@ -12,10 +12,9 @@ export const useLogin = () => {
     const [errorText, setErrorText] = useState('');
     const router = useRouter();
     const dispatch = useDispatch() as NextThunkDispatch;
-    const {setIsAuth} = useAppContext();
 
     const isDisabled = !(!!username.value && !!password.value);
-    const userBody = () => {
+    const userBody  = () : IUserRequestBody => {
         return {
             Username: username.value,
             Password: password.value,
@@ -33,7 +32,6 @@ export const useLogin = () => {
             return;
         }
         await dispatch(fetchUser(userBody()));
-        await setIsAuth(true);
         await router.push("/");
     };
 

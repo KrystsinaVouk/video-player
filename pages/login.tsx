@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Button, FormControl, Grid, TextField} from "@material-ui/core";
+import {Button, FormControl, Grid, TextField, Typography} from "@material-ui/core";
 // @ts-ignore
 import styles from '../styles/Login.module.scss'
 import {useLogin} from "../hooks/useLogin";
@@ -8,20 +8,20 @@ import {useRouter} from "next/router";
 
 const Login = () => {
 
-    const {username, password, errorText, isDisabled, login} = useLogin();
-    const {user} = useTypedSelector(state => state.user)
-    const router = useRouter();
+    const { username, password, errorText, isDisabled, login } = useLogin();
+    const { user } = useTypedSelector(state => state.user)
+    const { push } = useRouter();
 
     useEffect(()=> {
         if (user) {
-            router.push('/')
+            push('/')
         }
     }, [])
 
     return (
         <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
             <FormControl className={styles.form}>
-                <h1>Login Page</h1>
+                <Typography variant={'h3'}>Login</Typography>
                 <TextField
                     {...username}
                     fullWidth
@@ -46,8 +46,14 @@ const Login = () => {
                     className={styles.field}
                 />
                 <Grid container justifyContent="flex-end" className={styles.gridBtn}>
-                    <Button disabled={isDisabled} className={styles.btnLogin} variant={'outlined'}
-                            onClick={login}>Login</Button>
+                    <Button
+                        className={styles.btnLogin}
+                        disabled={isDisabled}
+                        variant={'outlined'}
+                        onClick={login}
+                    >
+                        Login
+                    </Button>
                 </Grid>
             </FormControl>
         </Grid>

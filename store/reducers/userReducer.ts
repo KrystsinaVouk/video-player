@@ -10,6 +10,8 @@ export const userReducer = (state = initialState, action: UserAction) => {
             return {user: action.payload, error: ''}
         case UserActionTypes.FETCH_USER_ERROR:
             return {...state, error: action.payload}
+        case UserActionTypes.REMOVE_USER:
+            return {user: null, error: ''}
         default:
             return state;
     }

@@ -23,7 +23,9 @@ export interface IUserState {
 
 export enum UserActionTypes {
     FETCH_USER = 'FETCH_USER',
-    FETCH_USER_ERROR = 'FETCH_USER_ERROR'
+    FETCH_USER_ERROR = 'FETCH_USER_ERROR',
+
+    REMOVE_USER = 'REMOVE_USER'
 }
 
 export interface IUserRequestBody {
@@ -49,4 +51,8 @@ interface IFetchUserErrorAction {
     payload: string
 }
 
-export type UserAction = IFetchUserAction | IFetchUserErrorAction;
+interface IRemoveUserAction {
+    type: UserActionTypes.REMOVE_USER
+}
+
+export type UserAction = IFetchUserAction | IFetchUserErrorAction | IRemoveUserAction;

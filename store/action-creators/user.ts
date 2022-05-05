@@ -1,5 +1,5 @@
 import {Dispatch} from "react";
-import { http } from "../../config/http";
+import {http} from "../../config/http";
 import {endpoints} from "../../config/endpoints";
 import {IUserRequestBody, IUserResponse, UserAction, UserActionTypes} from "../../types/user";
 import {errorMessage} from "../../config/errorMessages";
@@ -23,4 +23,8 @@ export const fetchUser = (userBody: IUserRequestBody) => {
             })
         }
     }
+}
+
+export const removeUser = (): UserAction => {
+    return {type: UserActionTypes.REMOVE_USER};
 }

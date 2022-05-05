@@ -1,52 +1,36 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import ReactPlayer from "react-player";
 import {Pause, PlayArrow, VolumeUp} from "@material-ui/icons";
-import {CircularProgress, Grid, IconButton} from "@material-ui/core";
+import {Grid, IconButton, Typography} from "@material-ui/core";
 import VideoProgress from "./VideoProgress";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useActions} from "../hooks/useActions";
 // @ts-ignore
 import styles from "../styles/Player.module.scss"
 import MainLayout from "../layouts/MainLayout";
+import Loader from "./Loader";
+import {usePlayerInfo} from "../hooks/usePlayerInfo";
 
 
-function Player({mediaId, streamType}) {
-    const playerRef = useRef<React.RefObject<HTMLMediaElement> | null>();
-    const {playerInfo, error, pause, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
-    const {fetchPlayerInfo, playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
-    const onPlay = () => pause ? playVideo() : pauseVideo();
+function Player({streamType}) {
 
-    const onReady = () => {
-        setDuration(active.Duration)
-    }
-    const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setVolume(Number(event.target.value));
-    }
-    const changeCurrentTime = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCurrentTime(Number(event.target.value));
-        // @ts-ignore
-        playerRef.current.player.seekTo(Number(event.target.value));
-    }
-    const onChangeProgress = ({playedSeconds}) => {
-        setCurrentTime(playedSeconds);
-    }
+    const { pause,
+            playerRef,
+            error,
+            playerInfo,
+            duration,
+            currentTime,
+            onReady,
+            onChangeProgress,
+            onPlay,
+            changeCurrentTime,
+            volume,
+            changeVolume
+        } = usePlayerInfo(streamType);
 
-    useEffect(() => {
-        try {
-            const fetchData = async () => {
-                await fetchPlayerInfo(mediaId, streamType);
-            };
-
-            fetchData();
-        } catch (e) {
-           console.log(e);
-        }
-    }, []);
 
     if (error) {
         return (
             <MainLayout>
-                <h1>{error}</h1>
+                <Typography color={'secondary'} variant={'h5'}>{error}</Typography>
             </MainLayout>
         )
     }
@@ -54,8 +38,7 @@ function Player({mediaId, streamType}) {
     if (!playerInfo) {
        return (
            <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
-               <CircularProgress color="inherit" />
-               <h1>Loading the player...</h1>
+               <Loader color={'papayawhip'}>Loading the player...</Loader>
            </Grid>
        )
     } else {
@@ -68,7 +51,8 @@ function Player({mediaId, streamType}) {
             }}>
                 <ReactPlayer
                     ref = {playerRef}
-                    url = {'https://www.youtube.com/watch?v=A0CfYSVzAZI'}
+                   url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
+                   /* url = {playerInfo.ContentUrl}*/
                     playing = {!pause}
                     volume = {volume / 100}
                     duration = {duration}
