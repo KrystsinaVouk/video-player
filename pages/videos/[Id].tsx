@@ -6,9 +6,11 @@ import Player from "../../components/Player";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import VideoCard from "../../components/VideoCard";
 
+
 const VideoPage = () => {
     const {query, push} = useRouter();
     const {active} = useTypedSelector(state => state.player);
+
 
     useEffect(()=> {
         if (!active) {
@@ -16,15 +18,16 @@ const VideoPage = () => {
         }
     }, [])
 
-    return (
-        <MainLayout>
-            {active &&
-            <>
+    if (!active) {
+        return <></>;
+    } else {
+        return (
+            <MainLayout title={active.Title} description={active.Description}>
                 <VideoCard videoInfo={active} />
                 <Player streamType={query.streamType} />
-            </>}
-        </MainLayout>
-    );
+            </MainLayout>
+        );
+    }
 };
 
 export default VideoPage;

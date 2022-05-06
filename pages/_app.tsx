@@ -1,9 +1,11 @@
-import '@fontsource/roboto/400.css';
+/*import '@fontsource/roboto/400.css';*/
 import '../styles/global.scss';
 
 import React, {FC} from 'react';
 import {AppProps} from 'next/app';
 import {wrapper} from "../store";
+
+
 
 const WrappedApp: FC<AppProps> = ({Component, pageProps}) => (
     <Component {...pageProps} />

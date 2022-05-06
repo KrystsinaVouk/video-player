@@ -1,22 +1,30 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
-import {Container} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
+import Head from "next/head";
+// @ts-ignore
+import styles from "../styles/MainLayout.module.scss"
 
-const MainLayout: React.FC = ({children}) => {
+interface MainLayoutProps {
+    title?: string;
+    description?: string;
+    keywords?: string;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({children, title, description, keywords}) => {
     return (
         <>
+            <Head>
+                <title>{title || `Better Software Group`}</title>
+                <meta name="description" content={`Video platform. Here you can watch videos of Better Software Group.` + description}/>
+                <meta name="robots" content="index, follow"/>
+                <meta name="keywords" content={keywords || "Videos, player, React"}/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            </Head>
             <Navbar />
-            <Container
-                style={{
-                    marginTop: 90,
-                    backgroundColor:'#141e30',
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:'center',
-                    alignItems: 'center',
-                }}>
+            <Grid className={styles.mainGrid}>
                 {children}
-            </Container>
+            </Grid>
         </>
     );
 };

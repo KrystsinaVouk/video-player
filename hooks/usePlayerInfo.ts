@@ -1,13 +1,17 @@
 import React, {useEffect, useRef} from 'react';
 import {useTypedSelector} from "./useTypedSelector";
 import {useActions} from "./useActions";
+import {useDispatch} from "react-redux";
+import {NextThunkDispatch} from "../store";
+import {fetchPlayerInfo} from "../store/action-creators/player";
 
 export const usePlayerInfo = (streamType:string) => {
 
     const playerRef = useRef<React.RefObject<HTMLMediaElement> | null>();
     const {playerInfo, error, pause, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
-    const {fetchPlayerInfo, playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
+    const {playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
     const onPlay = () => pause ? playVideo() : pauseVideo();
+    const dispatch = useDispatch() as NextThunkDispatch;
 
     const onReady = () => {
         setDuration(52)
@@ -27,9 +31,8 @@ export const usePlayerInfo = (streamType:string) => {
     useEffect(() => {
         try {
             const fetchData = async () => {
-                await fetchPlayerInfo(active.Id, streamType);
+                await dispatch(fetchPlayerInfo(active.Id, streamType));
             };
-
             fetchData();
         } catch (e) {
             console.log(e);

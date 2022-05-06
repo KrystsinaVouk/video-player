@@ -1,10 +1,10 @@
 import {useInput} from "./useInput";
-import {useState} from "react";
 import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
 import {NextThunkDispatch} from "../store";
 import {fetchUser} from "../store/action-creators/user";
 import {IUserRequestBody} from "../types/user";
+import {useState} from "react";
 
 export const useLogin = () => {
     const username = useInput("");
@@ -12,6 +12,7 @@ export const useLogin = () => {
     const [errorText, setErrorText] = useState('');
     const router = useRouter();
     const dispatch = useDispatch() as NextThunkDispatch;
+
 
     const isDisabled = !(!!username.value && !!password.value);
     const userBody  = () : IUserRequestBody => {

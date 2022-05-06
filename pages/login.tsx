@@ -6,7 +6,7 @@ import {useLogin} from "../hooks/useLogin";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useRouter} from "next/router";
 
-const Login = () => {
+const Login: React.FC = () => {
 
     const { username, password, errorText, isDisabled, login } = useLogin();
     const { user } = useTypedSelector(state => state.user)
@@ -14,14 +14,14 @@ const Login = () => {
 
     useEffect(()=> {
         if (user) {
-            push('/')
+            push('/');
         }
     }, [])
 
     return (
         <Grid container direction={"column"} justifyContent={"center"} alignItems={"center"}>
             <FormControl className={styles.form}>
-                <Typography variant={'h3'}>Login</Typography>
+                <Typography variant={'h5'}>Login</Typography>
                 <TextField
                     {...username}
                     fullWidth

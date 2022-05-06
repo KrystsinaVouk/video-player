@@ -9,7 +9,6 @@ import MainLayout from "../layouts/MainLayout";
 import Loader from "./Loader";
 import {usePlayerInfo} from "../hooks/usePlayerInfo";
 
-
 function Player({streamType}) {
 
     const { pause,
@@ -26,6 +25,9 @@ function Player({streamType}) {
             changeVolume
         } = usePlayerInfo(streamType);
 
+ /*   const handleClickFullscreen = () => {
+        screenfull.request(findDOMNode(playerRef))
+    }*/
 
     if (error) {
         return (
@@ -43,32 +45,29 @@ function Player({streamType}) {
        )
     } else {
         return (
-            <Grid container direction={"column"} style={{
-                margin:100,
-                width: '82%',
-                height: 550,
-                boxShadow:'0 5px 5px rgba(255,255,255,.6)'
-            }}>
+            <Grid container direction={"column"} className={styles.video}>
                 <ReactPlayer
                     ref = {playerRef}
-                   url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
+                    url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
                    /* url = {playerInfo.ContentUrl}*/
+                    width='100%'
+                    height='100%'
                     playing = {!pause}
                     volume = {volume / 100}
                     duration = {duration}
                     played = {currentTime}
                     onReady = {onReady}
                     onProgress = {onChangeProgress}
-                    style={{display:'contents'}}
+                    style={{display:'contents',  width: '100%'}}
                 />
 
                 <div className={styles.player}>
                     <IconButton onClick={onPlay}>
                         {pause ? <PlayArrow/> : <Pause/>}
                     </IconButton>
-                    <Grid container direction="column" style={{width: 200, margin: '0 20px'}}>
-                        <div>{playerInfo.Title}</div>
-                        <div style={{fontSize: 12, color: 'gray'}}>{playerInfo.MediaTypeDisplayName}</div>
+                    <Grid container direction="column" className={styles.playerInfoGrid}>
+                        <Typography variant={"body1"}>{playerInfo.Title}</Typography>
+                        <Typography variant={"body2"}>{playerInfo.MediaTypeDisplayName}</Typography>
                     </Grid>
                     <VideoProgress
                         left={Math.ceil(currentTime)}
@@ -77,11 +76,12 @@ function Player({streamType}) {
                         width={700}
                         sec={'seconds'}
                     />
-                    <VolumeUp style={{marginLeft: 'auto'}}/>
+                    <VolumeUp className={styles.volume}/>
                     <VideoProgress
                         left={volume}
                         right={100}
-                        onChange={changeVolume}/>
+                        onChange={changeVolume}
+                    />
                 </div>
             </Grid>
         )

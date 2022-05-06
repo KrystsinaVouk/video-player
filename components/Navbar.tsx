@@ -19,18 +19,21 @@ import {useEffect} from "react";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 export default function Navbar() {
-    const router = useRouter()
+    const { push } = useRouter()
     const {removeUser} = useActions();
     const {user} = useTypedSelector(state => state.user);
 
     const menuItems = [
-        {text: 'Home', onClick: () => router.push('/')},
-        {text: 'Videos', onClick: () => router.push('/')},
-        {text: 'Sign out', onClick: () => removeUser()},
+        {text: 'Home', onClick: () => push('/')},
+        {text: 'Videos', onClick: () => push('/')},
+        {text: 'Sign out',
+            onClick: () => {
+                removeUser();
+                localStorage.removeItem('token');
+            }},
     ]
 
     const [open, setOpen] = React.useState(false);
-
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -40,11 +43,13 @@ export default function Navbar() {
         setOpen(false);
     };
 
-    useEffect(()=> {
-        if (!user) {
-            router.push('/');
+    useEffect(() => {
+        if (user) {
+            localStorage.setItem('token', user.AuthorizationToken.Token);
+        } else {
+            push('/login');
         }
-    }, [user])
+    }, [user]);
 
     return (
         <div>
@@ -85,7 +90,7 @@ export default function Navbar() {
                             style={{ boxShadow: '0 5px 5px rgba(0,0,0,.3)'}}
                             button
                             key={text}
-                            onClick={()=>removeUser()}>
+                            onClick={onClick}>
                             <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}
                             </ListItemIcon>

@@ -1,6 +1,6 @@
-import {UserAction, UserActionTypes} from "../../types/user";
+import {IUserState, UserAction, UserActionTypes} from "../../types/user";
 
-const initialState = {
+const initialState: IUserState = {
     user: null,
     error: ''
 }
