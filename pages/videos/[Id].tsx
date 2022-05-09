@@ -19,14 +19,14 @@ const VideoPage = () => {
 
     if (!active) {
         return null;
-    } else {
-        return (
-            <MainLayout title={active.Title} description={active.Description}>
-                <VideoCard videoInfo={active} />
-                <Player streamType={query.streamType} />
-            </MainLayout>
-        );
     }
+
+    return (
+        <MainLayout title={active.Title} description={active.Description}>
+            <VideoCard videoInfo={active} />
+            <Player streamType={query.streamType} />
+        </MainLayout>
+    );
 };
 
 export default VideoPage;

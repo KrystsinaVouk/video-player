@@ -1,7 +1,7 @@
-import React from 'react';
-import {IImage, IVideoMediaContent} from "../types/video";
+import React from "react";
 import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
 import {useRouter} from "next/router";
+import {IImage, IVideoMediaContent} from "../types/video";
 import {useActions} from "../hooks/useActions";
 // @ts-ignore
 import styles from "../styles/VideoItem.module.scss";
@@ -12,15 +12,11 @@ interface IVideoItemProps {
 
 const VideoItem: React.FC<IVideoItemProps> = ({video}) => {
     const {setActive} = useActions();
-    const { push } = useRouter();
+    const {push} = useRouter();
 
-    const getFrameImage = (images: IImage[]) => {
-        const imageFrame = images.filter(
+    const getFrameImage = (images: IImage[]) => images.filter(
             (img) => img.ImageTypeCode === "FRAME"
-        );
-        // TODO: do refactor
-        return imageFrame.length ? imageFrame[0].Url : `https://th.bing.com/th/id/R.86d67c8fcfa5710abddbd03a0839de4a?rik=bzfGCJ7IhvprCA&pid=ImgRaw&r=0`;
-    };
+    )[0].Url;
 
     const onClickVideo = () => {
         setActive(video);

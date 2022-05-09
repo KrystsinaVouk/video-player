@@ -24,7 +24,6 @@ export interface IUserState {
 export enum UserActionTypes {
     FETCH_USER = 'FETCH_USER',
     FETCH_USER_ERROR = 'FETCH_USER_ERROR',
-
     REMOVE_USER = 'REMOVE_USER'
 }
 

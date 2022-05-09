@@ -8,24 +8,23 @@ import {errorMessage} from "../../enums/errorMessages";
 export const fetchPlayerInfo = (mediaId: number, streamType: string) => {
     return async (dispatch: Dispatch<PlayerAction>) => {
       try {
-        const { data } = await http.post<IPlayerRequestBody, IPlayerResponse>(
-            endpoints.GET_PLAYER_INFO,
-            {
-                MediaId: mediaId,
-                StreamType: streamType
-            })
+            const { data } = await http.post<IPlayerRequestBody, IPlayerResponse>(
+                endpoints.GET_PLAYER_INFO,
+                {
+                    MediaId: mediaId,
+                    StreamType: streamType
+                })
 
-        dispatch({
-        type: PlayerActionTypes.FETCH_PLAYER_INFO,
-        payload: data
-      })
-
+            dispatch({
+            type: PlayerActionTypes.FETCH_PLAYER_INFO,
+            payload: data
+          })
       } catch (error) {
-        dispatch({
-            type: PlayerActionTypes.FETCH_PLAYER_INFO_ERROR,
-            payload: errorMessage.FETCH_PLAYER
-         })
-      }
+            dispatch({
+                type: PlayerActionTypes.FETCH_PLAYER_INFO_ERROR,
+                payload: errorMessage.FETCH_PLAYER
+             })
+        }
     }
 }
 

@@ -8,13 +8,30 @@ import {NextThunkDispatch} from "../store";
 import {fetchPlayerInfo} from "../store/action-creators/player";
 import ReactPlayer from "react-player";
 
-export const usePlayerInfo = (streamType:string) => {
+export const usePlayerInfo = (streamType: string) => {
     const dispatch = useDispatch() as NextThunkDispatch;
     const playerRef = useRef<React.RefObject<ReactPlayer> | null>();
     const handle = useFullScreenHandle();
 
-    const {playerInfo, error, pause, isfullScreen, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
-    const {playVideo, pauseVideo, enterFullScreen, exitFullScreen, setVolume, setCurrentTime, setDuration} = useActions();
+    const {
+        playerInfo,
+        error,
+        pause,
+        isfullScreen,
+        active,
+        duration,
+        currentTime,
+        volume
+    } = useTypedSelector(state => state.player)
+    const {
+        playVideo,
+        pauseVideo,
+        enterFullScreen,
+        exitFullScreen,
+        setVolume,
+        setCurrentTime,
+        setDuration
+    } = useActions();
 
     const onPlay = () => pause ? playVideo() : pauseVideo();
 
@@ -45,11 +62,11 @@ export const usePlayerInfo = (streamType:string) => {
     }
 
     useEffect(() => {
-            const fetchData = async () => {
-                await dispatch(fetchPlayerInfo(active.Id, streamType));
-            };
+        const fetchData = async () => {
+            await dispatch(fetchPlayerInfo(active.Id, streamType));
+        };
 
-            fetchData();
+        fetchData();
     }, []);
 
     return {

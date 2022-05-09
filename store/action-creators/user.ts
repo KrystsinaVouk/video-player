@@ -1,7 +1,7 @@
 import {Dispatch} from "react";
 import {http} from "../../config/http";
-import {endpoints} from "../../enums/endpoints";
 import {IUserRequestBody, IUserResponse, UserAction, UserActionTypes} from "../../types/user";
+import {endpoints} from "../../enums/endpoints";
 import {errorMessage} from "../../enums/errorMessages";
 
 export const fetchUser = (userBody: IUserRequestBody) => {

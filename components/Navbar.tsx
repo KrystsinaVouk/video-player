@@ -13,14 +13,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import {useRouter} from "next/router";
 import {useNavbar} from "../hooks/useNavbar";
-
 // @ts-ignore
 import styles from "../styles/Navbar.module.scss"
 
 export default function Navbar() {
-    const { push } = useRouter();
     const {
         open,
         handleDrawerOpen,

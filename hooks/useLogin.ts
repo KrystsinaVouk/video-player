@@ -13,7 +13,6 @@ export const useLogin = () => {
     const router = useRouter();
     const dispatch = useDispatch() as NextThunkDispatch;
 
-
     const isDisabled = !(!!username.value && !!password.value);
     const userBody  = () : IUserRequestBody => {
         return {

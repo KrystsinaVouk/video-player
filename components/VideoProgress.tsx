@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+// @ts-ignore
+import styles from "../styles/VideoProgress.module.scss"
 
 interface VideoProgressProps {
     left: number;
@@ -10,17 +12,17 @@ interface VideoProgressProps {
 
 const VideoProgress:React.FC<VideoProgressProps> = ({left, right, onChange, width, sec}) => {
     return (
-        <div style={{display:"flex"}}>
+        <div className={styles.progress}>
             <input
                 style={{width: width}}
-                type={"range"}
+                type="range"
                 min={0}
                 max={right}
                 value={left}
                 onChange={onChange}
             />
             <div>{left} / {right}</div>
-            <div style={{marginLeft:10}}>{sec}</div>
+            <div>{sec}</div>
         </div>
     );
 }

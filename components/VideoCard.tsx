@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import {Button, Grid, Typography} from "@material-ui/core";
 import {useRouter} from "next/router";
 // @ts-ignore
-import styles from '../styles/VideoCard.module.scss'
+import styles from "../styles/VideoCard.module.scss"
 
 const VideoCard = ({videoInfo}) => {
     const {push} = useRouter();
@@ -10,7 +10,7 @@ const VideoCard = ({videoInfo}) => {
     return (
         <Grid className={styles.videoCardGrid}>
             <Button
-                variant={"outlined"}
+                variant="outlined"
                 className={styles.comeBackBtn}
                 onClick={() => push('/')}
             >
@@ -24,13 +24,13 @@ const VideoCard = ({videoInfo}) => {
                     height={200}
                 />
                 <div>
-                    <Typography variant={'h5'}>{videoInfo.Title}</Typography>
-                    <Typography variant={'h6'}>Media Type - {videoInfo.MediaTypeDisplayName}</Typography>
-                    <Typography variant={'h6'}>Year - {videoInfo.Year}</Typography>
+                    <Typography variant="h5">{videoInfo.Title}</Typography>
+                    <Typography variant="h6">Media Type - {videoInfo.MediaTypeDisplayName}</Typography>
+                    <Typography variant="h6">Year - {videoInfo.Year}</Typography>
                 </div>
             </Grid>
-            <Typography variant={'h5'}>Description</Typography>
-            <Typography variant={'body1'}>{videoInfo.Description}</Typography>
+            <Typography variant="h5">Description</Typography>
+            <Typography variant="body1">{videoInfo.Description}</Typography>
         </Grid>
     );
 };
