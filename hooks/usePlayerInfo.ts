@@ -62,11 +62,11 @@ export const usePlayerInfo = (streamType: string) => {
     }
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchPlayerData = async () => {
             await dispatch(fetchPlayerInfo(active.Id, streamType));
         };
 
-        fetchData();
+        fetchPlayerData();
     }, []);
 
     return {

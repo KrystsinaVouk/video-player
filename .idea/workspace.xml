@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="adding fullScreen functionality">
-      <change afterPath="$PROJECT_DIR$/styles/VideoProgress.module.scss" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="formatting styles">
+      <change afterPath="$PROJECT_DIR$/pages/photos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/action-creators/photo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/reducers/photoReducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Photos.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/photo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoProgress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enums/errorMessages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/enums/errorMessages.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useLogin.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useNavbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useNavbar.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/[Id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Player.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Player.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +98,8 @@
       <workItem from="1651843121344" duration="2348000" />
       <workItem from="1651853264220" duration="7744000" />
       <workItem from="1652017534059" duration="10478000" />
-      <workItem from="1652108707353" duration="5198000" />
+      <workItem from="1652108707353" duration="5840000" />
+      <workItem from="1652129850829" duration="9239000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -222,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652115262955</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="correcting styles and cleanup">
+      <created>1652119796284</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652119796284</updated>
+    </task>
+    <task id="LOCAL-00018" summary="formatting styles">
+      <created>1652119918361</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652119918361</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,14 +264,16 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="refactoring &#10;adding CEO optimization (meta, title)" />
     <MESSAGE value="adding fullScreen functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding fullScreen functionality" />
+    <MESSAGE value="correcting styles and cleanup" />
+    <MESSAGE value="formatting styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatting styles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/pages/login.tsx</url>
-          <line>25</line>
+          <line>24</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

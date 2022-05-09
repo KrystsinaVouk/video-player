@@ -3,11 +3,13 @@ import {playerReducer} from "./playerReducer";
 import {HYDRATE} from "next-redux-wrapper";
 import {videoReducer} from "./videoReducer";
 import {userReducer} from "./userReducer";
+import {photoReducer} from "./photoReducer";
 
 const rootReducer = combineReducers({
     player: playerReducer,
     video: videoReducer,
-    user: userReducer
+    user: userReducer,
+    photo: photoReducer
 })
 
 export const reducer = (state, action) => {
