@@ -4,10 +4,14 @@
   padding: 20px;
   border-radius: 2%;
 }
-
 .comeBackBtn {
-  font-size: 10px
+  box-shadow: 0 5px 5px rgba(0,0,0,.6);
+
+  & > span {
+    font-size: 11px;
+  }
 }
+
 .videoCardDescriptionGrid {
   margin: 10px 0;
 

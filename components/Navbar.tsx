@@ -14,50 +14,25 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useRouter} from "next/router";
-import {useActions} from "../hooks/useActions";
-import {useEffect} from "react";
-import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useNavbar} from "../hooks/useNavbar";
+
+// @ts-ignore
+import styles from "../styles/Navbar.module.scss"
 
 export default function Navbar() {
-    const { push } = useRouter()
-    const {removeUser} = useActions();
-    const {user} = useTypedSelector(state => state.user);
-
-    const menuItems = [
-        {text: 'Home', onClick: () => push('/')},
-        {text: 'Videos', onClick: () => push('/')},
-        {text: 'Sign out',
-            onClick: () => {
-                removeUser();
-                localStorage.removeItem('token');
-            }},
-    ]
-
-    const [open, setOpen] = React.useState(false);
-
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-
-    useEffect(() => {
-        if (user) {
-            localStorage.setItem('token', user.AuthorizationToken.Token);
-        } else {
-            push('/login');
-        }
-    }, [user]);
+    const { push } = useRouter();
+    const {
+        open,
+        handleDrawerOpen,
+        handleDrawerClose,
+        menuItems
+    } = useNavbar();
 
     return (
         <div>
             <CssBaseline/>
-            <AppBar
-                style={{background:'darkgrey', color:'black', boxShadow: '0 3px 3px rgba(0,0,0,.1)'}}
-                position="fixed"
-            >
+            <AppBar className={styles.appBar}
+            position="fixed">
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -79,7 +54,7 @@ export default function Navbar() {
             >
                 <div>
                     <IconButton
-                        style={{ boxShadow: '0 5px 5px rgba(0,0,0,.1)'}}
+                        className={styles.iconBtn}
                         onClick={handleDrawerClose}>
                         <ChevronLeftIcon/>
                     </IconButton>
@@ -87,7 +62,7 @@ export default function Navbar() {
                 <List>
                     {menuItems.map(({text, onClick}, index) => (
                         <ListItem
-                            style={{ boxShadow: '0 5px 5px rgba(0,0,0,.3)'}}
+                            className={styles.listItem}
                             button
                             key={text}
                             onClick={onClick}>

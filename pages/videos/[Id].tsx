@@ -11,7 +11,6 @@ const VideoPage = () => {
     const {query, push} = useRouter();
     const {active} = useTypedSelector(state => state.player);
 
-
     useEffect(()=> {
         if (!active) {
             push('/');
@@ -19,7 +18,7 @@ const VideoPage = () => {
     }, [])
 
     if (!active) {
-        return <></>;
+        return null;
     } else {
         return (
             <MainLayout title={active.Title} description={active.Description}>

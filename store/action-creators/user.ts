@@ -1,8 +1,8 @@
 import {Dispatch} from "react";
 import {http} from "../../config/http";
-import {endpoints} from "../../config/endpoints";
+import {endpoints} from "../../enums/endpoints";
 import {IUserRequestBody, IUserResponse, UserAction, UserActionTypes} from "../../types/user";
-import {errorMessage} from "../../config/errorMessages";
+import {errorMessage} from "../../enums/errorMessages";
 
 export const fetchUser = (userBody: IUserRequestBody) => {
     return async (dispatch: Dispatch<UserAction>) => {

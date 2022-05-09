@@ -16,7 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({children, title, description, ke
         <>
             <Head>
                 <title>{title || `Better Software Group`}</title>
-                <meta name="description" content={`Video platform. Here you can watch videos of Better Software Group.` + description}/>
+                <meta name="description" content={`Video platform. Here you can watch videos provided by Better Software Group.` + description}/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="keywords" content={keywords || "Videos, player, React"}/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

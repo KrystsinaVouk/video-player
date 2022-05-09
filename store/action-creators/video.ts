@@ -1,8 +1,8 @@
 import {Dispatch} from "react";
 import {IVideoListRequest, IVideoListResponse, VideoAction, VideoActionTypes} from "../../types/video";
 import {http} from "../../config/http";
-import {endpoints} from "../../config/endpoints";
-import {errorMessage} from "../../config/errorMessages";
+import {endpoints} from "../../enums/endpoints";
+import {errorMessage} from "../../enums/errorMessages";
 
 const getMediaListBody = (mediaListId: number) : IVideoListRequest => ({
     MediaListId: mediaListId,
