@@ -8,6 +8,7 @@ const initialState: PlayerState = {
   error: '',
   pause: true,
   volume: 50,
+  isfullScreen: false
 };
 
 export const playerReducer = (
@@ -23,6 +24,10 @@ export const playerReducer = (
       return { ...state, pause: false };
     case PlayerActionTypes.PAUSE:
       return { ...state, pause: true };
+    case PlayerActionTypes.ENTER_FULLSCREEN:
+      return {...state, isfullScreen: true };
+    case PlayerActionTypes.EXIT_FULLSCREEN:
+      return {...state, isfullScreen: false };
     case PlayerActionTypes.SET_ACTIVE:
       return { ...state, active: action.payload, duration: 0, currentTime: 0 };
     case PlayerActionTypes.SET_DURATION:

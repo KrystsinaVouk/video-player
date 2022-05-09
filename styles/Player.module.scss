@@ -7,6 +7,12 @@
 .playerInfoGrid {
   width: 200px;
   margin: 0 20px;
+  flex-wrap: nowrap;
+
+  & > p:first-child {
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
 }
 
 .player {

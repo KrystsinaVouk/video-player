@@ -19,6 +19,7 @@ export interface PlayerState {
   duration: number;
   currentTime: number;
   pause: boolean;
+  isfullScreen: boolean;
 }
 
 export enum PlayerActionTypes {
@@ -27,6 +28,8 @@ export enum PlayerActionTypes {
 
   PLAY = "PLAY",
   PAUSE = "PAUSE",
+  ENTER_FULLSCREEN = "ENTER_FULLSCREEN",
+  EXIT_FULLSCREEN = "EXIT_FULLSCREEN",
   SET_ACTIVE = "SET_ACTIVE",
   SET_DURATION = "SET_DURATION",
   SET_CURRENT_TIME = "SET_CURRENT_TIME",
@@ -39,6 +42,13 @@ interface PlayAction {
 
 interface PauseAction {
   type: PlayerActionTypes.PAUSE;
+}
+interface EnterFullScreenAction {
+  type: PlayerActionTypes.ENTER_FULLSCREEN;
+}
+
+interface ExitFullScreenAction {
+  type: PlayerActionTypes.EXIT_FULLSCREEN;
 }
 
 interface SetActiveAction {
@@ -87,6 +97,8 @@ export type PlayerAction =
 
   | PlayAction
   | PauseAction
+  | EnterFullScreenAction
+  | ExitFullScreenAction
   | SetActiveAction
   | SetDurationAction
   | SetVolumeAction

@@ -4,30 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="removing unneccessary components&#10;styles [updated]&#10;user reducer [updated]&#10;player functionality [improved]">
-      <change afterPath="$PROJECT_DIR$/components/Loader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/MainLayout.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/VideoCard.module.scss" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="refactoring">
+      <change afterPath="$PROJECT_DIR$/hooks/useNavbar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Navbar.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/VideoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/VideoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useLogin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/endpoints.ts" beforeDir="false" afterPath="$PROJECT_DIR$/enums/endpoints.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/errorMessages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/enums/errorMessages.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layouts/MainLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/MainLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/videos/[Guid].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/reducers/userReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/userReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Login.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Login.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/videos/[Id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/videos/[Id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/action-creators/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/reducers/playerReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/playerReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/Player.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Player.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/VideoItem.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/VideoItem.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/VideoCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/VideoCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/player.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +67,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\enums" />
       <recent name="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\assets" />
       <recent name="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\assets\images" />
       <recent name="C:\Users\Krystsina Vouk\OneDrive\Desktop\Projects\video-player\assets\img" />
@@ -110,7 +108,9 @@
       <workItem from="1651798182851" duration="1325000" />
       <workItem from="1651835242788" duration="3374000" />
       <workItem from="1651843121344" duration="2348000" />
-      <workItem from="1651853264220" duration="7590000" />
+      <workItem from="1651853264220" duration="7744000" />
+      <workItem from="1652017534059" duration="10478000" />
+      <workItem from="1652108707353" duration="930000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>
@@ -203,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651775294481</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactoring">
+      <created>1651861434979</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1651861434979</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +244,8 @@
     <MESSAGE value="fetching player info [created]" />
     <MESSAGE value="axios config [created]&#10;styles [updated]" />
     <MESSAGE value="removing unneccessary components&#10;styles [updated]&#10;user reducer [updated]&#10;player functionality [improved]" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing unneccessary components&#10;styles [updated]&#10;user reducer [updated]&#10;player functionality [improved]" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,11 +8,16 @@ import styles from "../styles/Player.module.scss"
 import MainLayout from "../layouts/MainLayout";
 import Loader from "./Loader";
 import {usePlayerInfo} from "../hooks/usePlayerInfo";
+import { FullScreen} from "react-full-screen";
+import { FullscreenExit, Fullscreen } from "@material-ui/icons";
 
 function Player({streamType}) {
 
-    const { pause,
-            playerRef,
+    const { playerRef,
+            pause,
+            isfullScreen,
+            handle,
+            onHandleFullScreen,
             error,
             playerInfo,
             duration,
@@ -25,9 +30,6 @@ function Player({streamType}) {
             changeVolume
         } = usePlayerInfo(streamType);
 
- /*   const handleClickFullscreen = () => {
-        screenfull.request(findDOMNode(playerRef))
-    }*/
 
     if (error) {
         return (
@@ -46,42 +48,48 @@ function Player({streamType}) {
     } else {
         return (
             <Grid container direction={"column"} className={styles.video}>
-                <ReactPlayer
-                    ref = {playerRef}
-                    url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
-                   /* url = {playerInfo.ContentUrl}*/
-                    width='100%'
-                    height='100%'
-                    playing = {!pause}
-                    volume = {volume / 100}
-                    duration = {duration}
-                    played = {currentTime}
-                    onReady = {onReady}
-                    onProgress = {onChangeProgress}
-                    style={{display:'contents',  width: '100%'}}
-                />
+                <div>
+                    <FullScreen handle={handle}>
+                        <ReactPlayer
+                            ref = {playerRef}
+                            url = {'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
+                            /* url = {playerInfo.ContentUrl}*/
+                            playing = {!pause}
+                            volume = {volume / 100}
+                            duration = {duration}
+                            played = {currentTime}
+                            onReady = {onReady}
+                            onProgress = {onChangeProgress}
+                            style={{display:'contents',  width: '100%'}}
+                        />
 
-                <div className={styles.player}>
-                    <IconButton onClick={onPlay}>
-                        {pause ? <PlayArrow/> : <Pause/>}
-                    </IconButton>
-                    <Grid container direction="column" className={styles.playerInfoGrid}>
-                        <Typography variant={"body1"}>{playerInfo.Title}</Typography>
-                        <Typography variant={"body2"}>{playerInfo.MediaTypeDisplayName}</Typography>
-                    </Grid>
-                    <VideoProgress
-                        left={Math.ceil(currentTime)}
-                        right={duration}
-                        onChange={changeCurrentTime}
-                        width={700}
-                        sec={'seconds'}
-                    />
-                    <VolumeUp className={styles.volume}/>
-                    <VideoProgress
-                        left={volume}
-                        right={100}
-                        onChange={changeVolume}
-                    />
+                        <div className={styles.player}>
+                            <IconButton onClick={onPlay}>
+                                {pause ? <PlayArrow/> : <Pause/>}
+                            </IconButton>
+                            <Grid container direction="column" className={styles.playerInfoGrid}>
+                                <Typography variant={"body1"}>{playerInfo.Title}</Typography>
+                                <Typography gutterBottom variant={"body2"}>{playerInfo.MediaTypeDisplayName}</Typography>
+                            </Grid>
+                            <VideoProgress
+                                left={Math.ceil(currentTime)}
+                                right={duration}
+                                onChange={changeCurrentTime}
+                                width={700}
+                                sec={'seconds'}
+                            />
+                            <IconButton
+                                onClick={onHandleFullScreen}>
+                                {isfullScreen ? <FullscreenExit/> : <Fullscreen/>}
+                            </IconButton>
+                            <VolumeUp className={styles.volume}/>
+                            <VideoProgress
+                                left={volume}
+                                right={100}
+                                onChange={changeVolume}
+                            />
+                        </div>
+                    </FullScreen>
                 </div>
             </Grid>
         )

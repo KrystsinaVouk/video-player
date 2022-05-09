@@ -1,20 +1,36 @@
 import React, {useEffect, useRef} from 'react';
+import {useFullScreenHandle} from "react-full-screen";
+import {useDispatch} from "react-redux";
+
 import {useTypedSelector} from "./useTypedSelector";
 import {useActions} from "./useActions";
-import {useDispatch} from "react-redux";
 import {NextThunkDispatch} from "../store";
 import {fetchPlayerInfo} from "../store/action-creators/player";
+import ReactPlayer from "react-player";
 
 export const usePlayerInfo = (streamType:string) => {
-
-    const playerRef = useRef<React.RefObject<HTMLMediaElement> | null>();
-    const {playerInfo, error, pause, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
-    const {playVideo, pauseVideo, setVolume, setCurrentTime, setDuration} = useActions();
-    const onPlay = () => pause ? playVideo() : pauseVideo();
     const dispatch = useDispatch() as NextThunkDispatch;
+    const playerRef = useRef<React.RefObject<ReactPlayer> | null>();
+    const handle = useFullScreenHandle();
+
+    const {playerInfo, error, pause, isfullScreen, active, duration, currentTime, volume} = useTypedSelector(state => state.player)
+    const {playVideo, pauseVideo, enterFullScreen, exitFullScreen, setVolume, setCurrentTime, setDuration} = useActions();
+
+    const onPlay = () => pause ? playVideo() : pauseVideo();
+
+    const onHandleFullScreen = () => {
+        if (!isfullScreen) {
+            handle.enter();
+            enterFullScreen();
+        } else {
+            handle.exit();
+            exitFullScreen();
+        }
+    }
 
     const onReady = () => {
-        setDuration(52)
+        setDuration(52);
+        // setDuration(active.Duration);
     }
     const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
         setVolume(Number(event.target.value));
@@ -29,21 +45,20 @@ export const usePlayerInfo = (streamType:string) => {
     }
 
     useEffect(() => {
-        try {
             const fetchData = async () => {
                 await dispatch(fetchPlayerInfo(active.Id, streamType));
             };
-            fetchData();
-        } catch (e) {
-            console.log(e);
-        }
-    }, []);
 
+            fetchData();
+    }, []);
 
     return {
         playerRef,
         pause,
         error,
+        isfullScreen,
+        handle,
+        onHandleFullScreen,
         playerInfo,
         duration,
         currentTime,
