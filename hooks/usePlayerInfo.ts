@@ -10,7 +10,7 @@ import ReactPlayer from "react-player";
 
 export const usePlayerInfo = (streamType: string) => {
     const dispatch = useDispatch() as NextThunkDispatch;
-    const playerRef = useRef<React.RefObject<ReactPlayer> | null>();
+    const playerRef = useRef<ReactPlayer | null>();
     const fullScreenHandle = useFullScreenHandle();
 
     const {
