@@ -31,3 +31,11 @@ export const fetchPhotos = (page: number, limit: number) => {
         }
     }
 }
+
+export const setCurrentPage = (): PhotoAction => {
+    return {type:PhotoActionTypes.SET_CURRENT_PAGE}
+}
+
+export const setFetching = (payload: boolean): PhotoAction => {
+    return {type:PhotoActionTypes.SET_FETCHING, payload}
+}

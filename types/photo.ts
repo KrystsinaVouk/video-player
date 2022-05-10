@@ -14,11 +14,16 @@ export interface IPhotoState {
     photos: IPhoto[];
     totalCount: number;
     error: string;
+    fetching: boolean;
+    currentPage: number;
 }
 
 export enum PhotoActionTypes {
     FETCH_PHOTOS = 'FETCH_PHOTOS',
-    FETCH_PHOTOS_ERROR = 'FETCH_PHOTOS_ERROR'
+    FETCH_PHOTOS_ERROR = 'FETCH_PHOTOS_ERROR',
+
+    SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
+    SET_FETCHING = "SET_FETCHING"
 }
 
 export interface IFetchPhotosAction {
@@ -31,4 +36,17 @@ export interface IFetchPhotosErrorAction {
     payload: string;
 }
 
-export type PhotoAction = IFetchPhotosAction | IFetchPhotosErrorAction;
+interface setCurrentPage {
+    type: PhotoActionTypes.SET_CURRENT_PAGE;
+}
+
+interface setFetching {
+    type: PhotoActionTypes.SET_FETCHING,
+    payload: boolean
+}
+
+export type PhotoAction =
+    IFetchPhotosAction
+    | IFetchPhotosErrorAction
+    | setCurrentPage
+    | setFetching;

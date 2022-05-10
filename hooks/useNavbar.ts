@@ -11,7 +11,7 @@ export const useNavbar = () => {
 
     const menuItems = [
         {text: 'Home', onClick: () => push('/')},
-        {text: 'Photos', onClick: () => push('/')},
+        {text: 'Photos', onClick: () => push('/photos')},
         {text: 'Sign out',
             onClick: () => {
                 removeUser();

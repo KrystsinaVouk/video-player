@@ -1,48 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {fetchPhotos} from "../store/action-creators/photo";
-import {useDispatch} from "react-redux";
-import {NextThunkDispatch} from "../store";
-// @ts-ignore
-import styles from "../styles/Photos.module.scss"
-import MainLayout from "../layouts/MainLayout";
+import React from "react";
 import {Grid, Typography} from "@material-ui/core";
+
+import MainLayout from "../layouts/MainLayout";
 import Loader from "../components/Loader";
+import {usePhotos} from "../hooks/usePhotos";
+import PhotoCard from "../components/PhotoCard";
+import {IPhoto} from "../types/photo";
 
 function Photos() {
-    const dispatch = useDispatch() as NextThunkDispatch;
-    const [currentPage, setCurrentPage] = useState(1);
-    const [fetching, setFetching] = useState(true);
-    const limit = 10;
-
-    const {photos, totalCount, error} = useTypedSelector(state => state.photo);
-
-    useEffect( () => {
-        const fetchPhotosData = async () => {
-            await dispatch(fetchPhotos(currentPage, limit));
-        }
-
-        if (fetching) {
-            fetchPhotosData().then(res => {
-                setCurrentPage(prevState => prevState + 1);
-            }).finally(() => setFetching(false))
-        }
-    }, [fetching]);
-
-    useEffect(() => {
-        document.addEventListener('scroll', scrollHandler);
-        return function () {
-            document.removeEventListener('scroll', scrollHandler);
-        }
-    }, [])
-
-    const scrollHandler = (event) => {
-        if (event.target.documentElement.scrollHeight - (event.target.documentElement.scrollTop + window.innerHeight) < 100
-        && photos.length < totalCount) {
-            console.log('scrooool');
-            setFetching(true);
-        }
-    }
+    const {photos, error} = usePhotos();
 
     if (error) {
         return (
@@ -53,32 +19,19 @@ function Photos() {
     }
 
     if (!photos.length) {
-        return <Loader color={'F6D1B4FF'}>{`Loading the photos`}</Loader>
+        return <Loader color={"F6D1B4FF"}>{`Loading the photos`}</Loader>
     }
 
     return (
-        <Grid container direction="column" alignItems="center" className={styles.mainPhotoGrid}>
-            {photos.length && photos.map(photo => {
-                return (
-                    <Grid
-                        key={photo.id}
-                        container
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="center"
-                        className={styles.photo}
-                    >
-                        <img
-                            alt={photo.title}
-                            src={photo.thumbnailUrl}
-                            width={100}
-                            height={100}
-                        />
-                        <Typography variant="h5">{photo.title}</Typography>
-                    </Grid>
-                )
-            })}
-        </Grid>
+        <MainLayout title={`Dynamic Photos`} description={`Photos are being loaded dynamically once the user reaches the end of the page`}>
+            <Grid container direction="column" alignItems="center">
+                {photos.length && photos.map(({id, title, thumbnailUrl}:IPhoto) => {
+                    return (
+                       <PhotoCard id={id} title={title} source={thumbnailUrl}/>
+                    )
+                })}
+            </Grid>
+        </MainLayout>
     );
 }
 
