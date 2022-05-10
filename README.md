@@ -15,17 +15,24 @@ Each page has its own title, description keywords (not required). The page with 
 because I pass the variables storing the title and description of the video in the props of MainLayout which go 
 to the special `<Head />` tag.
 
+## Player
+
+As the assignment tells for itself, the actual one of the main goal of it is to develop the interactions with `HTMLMediaElement`
+in React. That is why, I created a separate state, reducer for the player to handle playing, pausing, changing volume, time, fullscreen.
+Within the component using the lib `ReactPlayer` I do not pass `true` in `controls` property, so the video playes with the developed controls.
+
 
 ## Additional feature
 
-The entire `Photos` page was developed by me in order to represent `endless scroll`. 
+The entire `Photos` page was developed by me in order to represent `endless scroll`.
 The content in the `db` can be huge in size and loading everything at first time will be incredibly difficult fo `React`.
 So, I decided to realize the uploading the items (photos) once the user achieves the end of the page.
-I wanted to make it inside the Video Page, but the API response was the same regardless of changed the body property 
-such as 
+I wanted to make it inside the Video Page, but the API response was the same regardless of changed the body property
+such as
 `{
-    PageNumber,
-    PageSize
+PageNumber,
+PageSize
 }.`
+But maybe, I misunderstood something. And, I am happy to change it after the discussion :)
 
 So, I hope you would find it interesting :)

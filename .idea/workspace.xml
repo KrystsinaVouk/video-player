@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="endless scroll [added]">
-      <change afterPath="$PROJECT_DIR$/components/PhotoCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/usePhotos.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/PhotoCard.module.scss" afterDir="false" />
+    <list default="true" id="29de29d1-3250-42e7-b194-7fc9348dbebc" name="Changes" comment="player small clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useNavbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useNavbar.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/photos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/photos.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/action-creators/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/action-creators/photo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/action-creators/photo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/reducers/photoReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/reducers/photoReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Photos.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/photo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/photo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Player.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/usePlayerInfo.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +97,7 @@
       <workItem from="1652108707353" duration="5840000" />
       <workItem from="1652129850829" duration="9293000" />
       <workItem from="1652185098972" duration="3031000" />
+      <workItem from="1652213289126" duration="153000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1651267775965</created>

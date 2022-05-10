@@ -11,7 +11,7 @@ import ReactPlayer from "react-player";
 export const usePlayerInfo = (streamType: string) => {
     const dispatch = useDispatch() as NextThunkDispatch;
     const playerRef = useRef<React.RefObject<ReactPlayer> | null>();
-    const handle = useFullScreenHandle();
+    const fullScreenHandle = useFullScreenHandle();
 
     const {
         playerInfo,
@@ -37,17 +37,16 @@ export const usePlayerInfo = (streamType: string) => {
 
     const onHandleFullScreen = () => {
         if (!isfullScreen) {
-            handle.enter();
+            fullScreenHandle.enter();
             enterFullScreen();
         } else {
-            handle.exit();
+            fullScreenHandle.exit();
             exitFullScreen();
         }
     }
 
     const onReady = () => {
-        setDuration(52);
-        // setDuration(active.Duration);
+        setDuration(active.Duration);
     }
     const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
         setVolume(Number(event.target.value));
@@ -74,16 +73,16 @@ export const usePlayerInfo = (streamType: string) => {
         pause,
         error,
         isfullScreen,
-        handle,
-        onHandleFullScreen,
+        fullScreenHandle,
+        volume,
         playerInfo,
         duration,
         currentTime,
+        onHandleFullScreen,
         onReady,
         onChangeProgress,
         onPlay,
         changeCurrentTime,
-        volume,
         changeVolume
     };
 }

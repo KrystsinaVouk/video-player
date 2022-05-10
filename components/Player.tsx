@@ -10,24 +10,27 @@ import {usePlayerInfo} from "../hooks/usePlayerInfo";
 // @ts-ignore
 import styles from "../styles/Player.module.scss"
 
+interface IPlayerProps {
+    streamType: string;
+}
 
-function Player({streamType}) {
+const Player: React.FC<IPlayerProps> = ({streamType}) => {
 
     const {
         playerRef,
         pause,
         isfullScreen,
-        handle,
-        onHandleFullScreen,
+        fullScreenHandle,
+        volume,
         error,
         playerInfo,
         duration,
         currentTime,
+        onHandleFullScreen,
         onReady,
         onChangeProgress,
         onPlay,
         changeCurrentTime,
-        volume,
         changeVolume
     } = usePlayerInfo(streamType);
 
@@ -50,11 +53,10 @@ function Player({streamType}) {
         return (
             <Grid container direction="column" className={styles.video}>
                 <div>
-                    <FullScreen handle={handle}>
+                    <FullScreen handle={fullScreenHandle}>
                         <ReactPlayer
                             ref={playerRef}
-                            url={'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'}
-                            /* url = {playerInfo.ContentUrl}*/
+                            url = {playerInfo.ContentUrl}
                             playing={!pause}
                             volume={volume / 100}
                             duration={duration}
