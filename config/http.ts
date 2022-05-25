@@ -27,7 +27,7 @@ class Http {
 
     initHttp() {
         const http = axios.create({
-            baseURL: "https://thebetter.bsgroup.eu/",
+            baseURL: process.env.API_URL,
             headers,
         });
 

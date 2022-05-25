@@ -56,7 +56,8 @@ const Player: React.FC<IPlayerProps> = ({streamType}) => {
                     <FullScreen handle={fullScreenHandle}>
                         <ReactPlayer
                             ref={playerRef}
-                            url = {playerInfo.ContentUrl}
+                            /*url = {playerInfo.ContentUrl}*/
+                            url = {`https://www.youtube.com/watch?v=GndbH4wniSA`}
                             playing={!pause}
                             volume={volume / 100}
                             duration={duration}

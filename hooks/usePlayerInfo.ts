@@ -46,7 +46,9 @@ export const usePlayerInfo = (streamType: string) => {
     }
 
     const onReady = () => {
-        setDuration(active.Duration);
+       // setDuration(active.Duration);
+        setDuration(6 * 60);
+
     }
     const changeVolume = (event: React.ChangeEvent<HTMLInputElement>) => {
         setVolume(Number(event.target.value));
